@@ -1,16 +1,18 @@
 import React from 'react';
 import { render } from 'react-dom';
-import Home from './components/home.jsx';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import App from './app';
+import NavBar from './navbar';
 
-class App extends React.Component {
-  render() {
-    return (
-      <div>
-        <Home />
-      </div>
-    );
-  }
-}
+const Index = () => (
+  <Router>
+    <div>
+      <NavBar />
+      <Route exact path="/" component={App} />
+    </div>
+  </Router>
+);
 
 
-render(<App />, document.getElementById('app'));
+render(React.createElement(Index), document.getElementById('app'));
+

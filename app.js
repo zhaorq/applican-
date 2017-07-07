@@ -25,6 +25,4 @@ app.listen(app.get('port'), (err) => {
 app.use('/api', apiRouter);
 app.use('/auth', authRouter);
 
-
-
 module.exports = app;

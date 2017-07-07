@@ -1,6 +1,16 @@
 import React from 'react';
 import { render } from 'react-dom';
+import Home from './components/home.jsx';
 
-const App = () => (<h1>Welcome to Applican</h1>);
+class App extends React.Component {
+  render() {
+    return (
+      <div>
+        <Home />
+      </div>
+    );
+  }
+}
 
-render(React.createElement(App), document.getElementById('app'));
+
+render(<App />, document.getElementById('app'));

@@ -48,12 +48,15 @@
     "axios": "^0.16.2",
     "express": "^4.15.3",
     "passport": "^0.3.2",
+    "pg": "^6.4.0",
+    "pg-hstore": "^2.3.2",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.5",
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",
     "redux": "^3.7.1",
+    "sequelize": "^4.2.1",
     "webpack": "^3.1.0"
   }
 }

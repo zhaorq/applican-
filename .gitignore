@@ -60,6 +60,7 @@ typings/
 # apikeys endpoint
 db/config.keys.js
 
-#webpacl
+#webpack bundle
 public/bundle.js
-public/bundle.js.map
+public.bundle.js.map
+

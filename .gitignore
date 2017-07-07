@@ -56,3 +56,7 @@ typings/
 
 # dotenv environment variables file
 .env
+
+#webpack
+public/bundle.js
+public/bundle.js.map

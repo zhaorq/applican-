@@ -2,7 +2,8 @@ const express = require('express');
 const path = require('path');
 
 const app = express();
-var router = require("./router");
+const apiRouter = require("./router/apiRouter");
+const authRouter = require("./router/authRouter");
 
 // INIT
 app.set('port', process.env.PORT || 2245);
@@ -14,8 +15,10 @@ app.listen(app.get('port'), (err) => {
   return console.log('Applican-: Listening on port:', app.get('port'));
 });
 
-//API route 
-app.use('/', router);
+// ROUTING
+app.use('/api', apiRouter);
+app.use('/auth', authRouter);
+
 
 
 module.exports = app;

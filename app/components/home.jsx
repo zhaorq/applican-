@@ -31,8 +31,24 @@ export class Home extends React.Component {
   }
 
   handleSubmit(event) {
-    // 
     event.preventDefault();
+    fetch('/search', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        title: this.value,
+      }),
+    })
+      .then((res) => {
+        console.log(res)
+        res.json()
+          .then((data) => {
+            console.log(data)
+          })
+      });
   }
 
   render() {

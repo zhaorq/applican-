@@ -17,7 +17,7 @@ app.listen(app.get('port'), (err) => {
 
 //search from Dice's API. 
 app.post('/search', function (req, res) {
-	var text = 'Java'; 
+  var text = 'Java'; 
   var city = "New+York,+NY"; //must be in this format; 
 	axios.get('http://service.dice.com/api/rest/jobsearch/v1/simple.json?text='+text+'&city='+city
   )

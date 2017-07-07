@@ -59,3 +59,7 @@ typings/
 
 # apikeys endpoint
 db/config.keys.js
+
+#webpacl
+public/bundle.js
+public/bundle.js.map

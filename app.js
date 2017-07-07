@@ -6,6 +6,12 @@ const app = express();
 // INIT
 app.set('port', process.env.PORT || 2245);
 app.use(express.static(path.join(__dirname, '/public')));
+
+// Automatically redirects to index.html for React-Router
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/public', 'index.html'));
+});
+
 app.listen(app.get('port'), (err) => {
   if (err) {
     return console.log('Error starting server', err);

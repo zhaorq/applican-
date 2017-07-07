@@ -15,7 +15,7 @@ app.listen(app.get('port'), (err) => {
 });
 
 
-//search from glassdoor's API. 
+//search from Dice's API. 
 app.post('/search', function (req, res) {
 	var text = 'Java'; 
   var city = "New+York,+NY"; //must be in this format; 

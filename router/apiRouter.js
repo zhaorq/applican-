@@ -1,7 +1,7 @@
 const axios = require("axios");
-var router = require('express').Router();
+var apiRouter = require('express').Router();
 //search from Dice's API. 
-router.post('/search', function (req, res) {
+apiRouter.post('/search', function (req, res) {
   var text = 'Java'; 
   var city = "New+York,+NY"; //must be in this format; 
 	axios.get('http://service.dice.com/api/rest/jobsearch/v1/simple.json?text='+text+'&city='+city
@@ -15,4 +15,4 @@ router.post('/search', function (req, res) {
 	})
 });
 
-module.exports = router;
+module.exports = apiRouter;

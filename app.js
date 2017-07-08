@@ -18,24 +18,24 @@ passport.use(new GoogleStrategy({
   clientSecret: 'c5t-iX_qW1DVbuyNMtXgGRCy',
   callbackURL: 'http://localhost:2245/auth/google/callback',
 },
-function (accessToken, refreshToken, profile, cb) { // eslint-disable-line unexpected function express
-  User.findOrCreate({ googleId: profile.id }, function (err, user) { // eslint-disable-line unexpected function express
+((accessToken, refreshToken, profile, cb) => { // eslint-disable-line unexpected function express
+  User.findOrCreate({ googleId: profile.id }, (err, user) => { // eslint-disable-line unexpected function express
     return cb(err, user);
   });
-}
+}),
 ));
 
-passport.serializeUser(function (user, done) { // eslint-disable-line unexpected function express
+passport.serializeUser((user, done) => { // eslint-disable-line unexpected function express
   done(null, user.id);
 });
 
-passport.deserializeUser(function (id, done) { // eslint-disable-line unexpected function express
-  User.findById(id, function (err, user) { // eslint-disable-line unexpected function express
+passport.deserializeUser((id, done) => { // eslint-disable-line unexpected function express
+  User.findById(id, (err, user) => { // eslint-disable-line unexpected function express
     done(err, user);
   });
 });
 
-// MIDDLEWARE 
+// MIDDLEWARE
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(cookieParser);

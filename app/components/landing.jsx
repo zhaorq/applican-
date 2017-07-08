@@ -38,16 +38,11 @@ class Landing extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="mui-container mui--text-center">
         <h1>Welcome to Applican</h1>
         <h2>The can-do job searcher that's right for you!</h2>
         <form onSubmit={this.handleSubmit}>
-          Search by Title:
           <input type="text" value={this.state.value} onChange={this.handleChange} />
-          <br />
-          {/* Search by Location:
-          <input type="text" value={this.state.location} onChange={this.handleChange} />
-          <br />*/}
           <input type="submit" value="Submit" />
         </form>
       </div>

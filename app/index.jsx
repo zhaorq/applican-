@@ -1,23 +1,14 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import Landing from './components/landing';
-import Search from './components/search';
-import Signup from './components/signup';
-import store from './store/store';
+import { BrowserRouter as Router } from 'react-router-dom';
+import App from './components/app';
+
 
 const Index = () => (
-  <Provider store={store}>
-    <Router>
-      <switch>
-        <Route exact path="/search" component={Search} />
-        <Route exact path="/" component={Landing} />
-        <Route exact path="/signup" component={Signup} />
-        <Route exact path="/login" component={Login} />
-      </switch>
-    </Router>
-  </Provider >
+  <Router>
+    <App />
+  </Router>
+
 );
 
 

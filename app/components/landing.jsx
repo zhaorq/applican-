@@ -1,21 +1,6 @@
 import React from 'react';
 
-// export class Home extends React.Component {
-//   render() {
-//     return (
-//       <div>
-//         <h1>Welcome to Applican!</h1>
-//         <h2>The can-do job searcher that's right for you</h2>
-//         <form>
-//           <p>Search by Title or Search by Location</p>
-//           <input type="text" value="title" />
-//           <input type="text" value="location" />
-//         </form>
-//       </div>);
-//   }
-// }
-
-class Home extends React.Component {
+class Landing extends React.Component {
   constructor(props) {
     super(props);
     this.state = { value: '', location: '' };
@@ -31,7 +16,7 @@ class Home extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    fetch('/search', {
+    fetch('/api/search', {
       method: 'POST',
       headers: {
         Accept: 'application/json',
@@ -42,12 +27,13 @@ class Home extends React.Component {
       }),
     })
       .then((res) => {
-        console.log(res)
+        console.log(res);
         res.json()
           .then((data) => {
-            console.log(data)
-          })
+            console.log(data);
+          });
       });
+    this.props.history.push('/search');
   }
 
   render() {
@@ -69,4 +55,4 @@ class Home extends React.Component {
   }
 }
 
-export default Home;
+export default Landing;

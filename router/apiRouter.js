@@ -1,6 +1,6 @@
 const axios = require('axios');
 const router = require('express').Router();
-// search from Dice's API. 
+// search from Dice's API.
 router.post('/search', (req, res) => {
   axios.get('http://service.dice.com/api/rest/jobsearch/v1/simple.json?text={text}&city={city}')
     .then((response) => {

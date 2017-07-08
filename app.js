@@ -2,8 +2,8 @@ const express = require('express');
 const path = require('path');
 
 const app = express();
-const apiRouter = require("./router/apiRouter");
-const authRouter = require("./router/authRouter");
+const apiRouter = require('./router/apiRouter');
+const authRouter = require('./router/authRouter');
 
 // INIT
 app.set('port', process.env.PORT || 2245);

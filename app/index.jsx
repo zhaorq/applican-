@@ -1,12 +1,11 @@
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import React from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Landing from './components/landing';
 import Search from './components/search';
-
-injectTapEventPlugin();
+import Signup from './components/signup';
 
 const Index = () => (
   <MuiThemeProvider>
@@ -14,6 +13,7 @@ const Index = () => (
       <switch>
         <Route exact path="/search" component={Search} />
         <Route exact path="/" component={Landing} />
+        <Route exact path="/signup" component={Signup} />
       </switch>
     </Router>
   </MuiThemeProvider>
@@ -22,4 +22,3 @@ const Index = () => (
 
 
 render(React.createElement(Index), document.getElementById('app'));
-

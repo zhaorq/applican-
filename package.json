@@ -6,6 +6,7 @@
   "scripts": {
     "test": "jest",
     "nodemon": "nodemon app.js",
+    "webpack": "webpack -d --watch",
     "lint": "eslint *.{js,jsx} **/*.{js,jsx}"
   },
   "pre-commit": [

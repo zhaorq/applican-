@@ -3,6 +3,7 @@ const path = require('path');
 
 const app = express();
 const apiRouter = require('./router/apiRouter');
+const authRouter = require('./router/authRouter');
 const cookieParser = require('cookie-parser')();
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
@@ -21,7 +22,7 @@ function (accessToken, refreshToken, profile, cb) { // eslint-disable-line unexp
   User.findOrCreate({ googleId: profile.id }, function (err, user) { // eslint-disable-line unexpected function express
     return cb(err, user);
   });
-},
+}
 ));
 
 passport.serializeUser(function (user, done) { // eslint-disable-line unexpected function express

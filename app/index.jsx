@@ -1,15 +1,18 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Home from './components/home';
-import NavBar from './navbar';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+import Landing from './components/landing';
+import Search from './components/search';
+
+injectTapEventPlugin();
 
 const Index = () => (
   <Router>
-    <div>
-      <NavBar />
-      <Route exact path="/" component={Home} />
-    </div>
+    <switch>
+      <Route exact path="/search" component={Search} />
+      <Route exact path="/" component={Landing} />
+    </switch>
   </Router>
 );
 

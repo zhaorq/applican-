@@ -1,6 +1,6 @@
-
 const authRouter = require('express').Router();
 const passport = require('passport');
+
 // const User  = require('../db/models/User.js');
 
 // Logs user out, not current accessible by UI

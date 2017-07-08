@@ -3,11 +3,11 @@ const path = require('path');
 
 const app = express();
 const apiRouter = require('./router/apiRouter');
-const authRouter = require('./router/authRouter');
 const cookieParser = require('cookie-parser')();
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const User = require('./db/models/User');
+
 
 app.use(express.static(path.join(__dirname, '/public')));
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { setSearchTerm, addJobListings } from '../actions/actions';
+import NavBar from './navbar';
 
 class Landing extends React.Component {
   constructor(props) {

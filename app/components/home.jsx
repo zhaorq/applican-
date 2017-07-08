@@ -1,20 +1,5 @@
 import React from 'react';
 
-// export class Home extends React.Component {
-//   render() {
-//     return (
-//       <div>
-//         <h1>Welcome to Applican!</h1>
-//         <h2>The can-do job searcher that's right for you</h2>
-//         <form>
-//           <p>Search by Title or Search by Location</p>
-//           <input type="text" value="title" />
-//           <input type="text" value="location" />
-//         </form>
-//       </div>);
-//   }
-// }
-
 class Home extends React.Component {
   constructor(props) {
     super(props);

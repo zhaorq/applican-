@@ -18,15 +18,28 @@ passport.use(new GoogleStrategy({
   clientSecret: 'c5t-iX_qW1DVbuyNMtXgGRCy',
   callbackURL: 'http://localhost:2245/auth/google/callback',
 },
-((accessToken, refreshToken, profile, cb) => { // eslint-disable-line unexpected function express
-  User.findOrCreate({ googleId: profile.id }, (err, user) => { // eslint-disable-line unexpected function express
-    return cb(err, user);
-  });
-}),
-));
+(accessToken, refreshToken, profile, done) => {
+  User.findOne({ googleId: profile.id })
+    .then((user) => {
+      if (user) {
+        done(null, user);
+      } else {
+        const newUser = new User();
+        newUser.name = profile.displayName;
+        newUser.googleId = profile.id;
+        newUser.save((err) => {
+          if (err) {
+            throw err;
+          }
+          return done(null, newUser);
+        });
+      }
+    });
+}));
+
 
 passport.serializeUser((user, done) => { // eslint-disable-line unexpected function express
-  done(null, user.id);
+  done(null, user);
 });
 
 passport.deserializeUser((id, done) => { // eslint-disable-line unexpected function express

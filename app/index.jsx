@@ -14,6 +14,7 @@ const Index = () => (
         <Route exact path="/search" component={Search} />
         <Route exact path="/" component={Landing} />
         <Route exact path="/signup" component={Signup} />
+        <Route exact path="/login" component={Login} />
       </switch>
     </Router>
   </Provider >

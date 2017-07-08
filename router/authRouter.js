@@ -28,13 +28,13 @@ const passport = require('passport');
 
 // authRouter.get('/data', function() {
 //    User.findAll().then(function(data) {
-//    	res.send(data); 
+//    res.send(data); 
 //    })
 // })
 
 // Google oauth route
 authRouter.get('/google',
-  passport.authenticate('google', { prompt: 'consent', scope: ['profile','email'] }));
+  passport.authenticate('google', { prompt: 'consent', scope: ['profile', 'email'] }));
 
 // Google oauth callback
 authRouter.get('/google/callback',

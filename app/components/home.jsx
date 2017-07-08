@@ -27,11 +27,11 @@ class Home extends React.Component {
       }),
     })
       .then((res) => {
-        console.log(res)
+        console.log(res);
         res.json()
           .then((data) => {
-            console.log(data)
-          })
+            console.log(data);
+          });
       });
   }
 

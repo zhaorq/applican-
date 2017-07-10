@@ -1,16 +1,16 @@
 import { combineReducers } from 'redux';
-import { SET_SEARCH_TERM, ADD_JOB_LISTINGS } from '../actions/actionTypes';
+import { SET_SEARCH_TERM, UPDATE_JOB_LISTINGS, QUEUE_JOB_LISTING, DELETE_JOB } from '../actions/actionTypes';
 
-const mockUserSavedJobsData = [
-  { company: 'ZEDVentures Incorporated',
+const mockUserJobsData = [
+  { id: 1,
+    company: 'ZEDVentures Incorporated',
     date: '2017-07-10',
     detailUrl: 'http://www.dice.com/job/result/10342830/066933?src=19',
     jobTitle: 'Open Text Consultant',
+    status: -1,
   },
-];
-
-const mockUserJobsData = [
-  { company: 'ZEDVentures Incorporated',
+  { id: 2,
+    company: 'ZEDVentures Incorporated',
     date: '2017-07-10',
     detailUrl: 'http://www.dice.com/job/result/10342830/066933?src=19',
     jobTitle: 'Open Text Consultant',
@@ -27,26 +27,22 @@ const searchTerm = (state = '', action) => {
 };
 
 const jobAPIData = (state = {}, action) => {
-  if (action.type === ADD_JOB_LISTINGS) {
+  if (action.type === UPDATE_JOB_LISTINGS) {
     return Object.assign({}, state, { data: action.payload });
   }
   return state;
 };
-
-const userSavedJobs = (state = mockUserSavedJobsData, action) => {
-  if (action.type) {
-    return state;
-  }
-  return state;
-};
-
 const userJobs = (state = mockUserJobsData, action) => {
-  if (action.type) {
-    return state;
+  if (action.type === QUEUE_JOB_LISTING) {
+    return state.map(job => ((job.id === action.payload.id) ?
+      Object.assign({}, job, { status: 0 }) : job));
+  }
+  if (action.type === DELETE_JOB) {
+    return state.filter(job => job.id !== action.payload.id);
   }
   return state;
 };
 
-const rootReducer = combineReducers({ searchTerm, jobAPIData, userJobs, userSavedJobs });
+const rootReducer = combineReducers({ searchTerm, jobAPIData, userJobs });
 
 export default rootReducer;

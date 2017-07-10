@@ -1,4 +1,5 @@
 const User = require('../db/models/User');
+const db = require('../db/db');
 
 test('DB returns an object', () => {
   User.findAll({}).then(data => expect(typeof data).toBe('object'));
@@ -15,3 +16,7 @@ test('DB should return Jason', () => {
     },
   }).then(data => expect(data.name).toBe('Jason Lusthaus'));
 });
+
+afterAll(() => {
+  db.close();
+})

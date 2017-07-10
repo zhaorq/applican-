@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { setSearchTerm, addJobListings } from '../actions/actions';
+import { setSearchTerm, updateJobListings } from '../actions/actions';
 
 
 class Landing extends React.Component {
@@ -52,7 +52,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch(setSearchTerm(event.target.value));
   },
   addAPIJobData(APIData) {
-    dispatch(addJobListings(APIData));
+    dispatch(updateJobListings(APIData));
   },
 });
 

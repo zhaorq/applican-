@@ -1,5 +1,5 @@
 
-import { SET_SEARCH_TERM, ADD_JOB_LISTINGS, GET_JOB_API } from './actionTypes';
+import { SET_SEARCH_TERM, ADD_JOB_LISTINGS } from './actionTypes';
 
 export function setSearchTerm(searchTerm) {
   return { type: SET_SEARCH_TERM, payload: searchTerm };

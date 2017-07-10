@@ -6,6 +6,7 @@ import NavBar from './navbar';
 import Search from './search';
 import Signup from './signup';
 import Login from './login';
+import Dashboard from './dashboard';
 import store from '../store/store';
 
 const App = () => (
@@ -16,6 +17,7 @@ const App = () => (
       <Route exact path="/signup" component={Signup} />
       <Route exact path="/search" component={Search} />
       <Route exact path="/login" component={Login} />
+      <Route exact path="/dashboard" component={Dashboard} />
     </div>
   </Provider >
 );

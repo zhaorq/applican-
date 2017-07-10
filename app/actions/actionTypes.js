@@ -1,3 +1,3 @@
 export const SET_SEARCH_TERM = 'SET_SEARCH_TERM';
 export const ADD_JOB_LISTINGS = 'ADD_JOB_LISTINGS';
-
+export const SEE_JOB_DETAILS = 'SEE_JOB_DETAILS';

@@ -9,6 +9,6 @@ export function addJobListings(jobListings) {
   return { type: ADD_JOB_LISTINGS, payload: jobListings };
 }
 
-export function selectJobDetails(job) {
-  return { type: SEE_JOB_DETAILS, payload: job };
+export function selectJobDetails(jobDetail) {
+  return { type: SEE_JOB_DETAILS, payload: jobDetail };
 }

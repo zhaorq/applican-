@@ -34,7 +34,6 @@ class Landing extends React.Component {
   render() {
     return (
       <div className="mui-container mui--text-center">
-        <JobDetails />
         <h1>{this.props.searchTerm}</h1>
         <h2>The can-do job searcher that's right for you!!</h2>
         <form onSubmit={this.handleSubmit}>

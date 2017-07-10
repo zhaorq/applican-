@@ -1,14 +1,24 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-const JobDetails = () => (
-  <div>
-    <h2>{props.jobTitle}</h2>
-    <h3>{props.company}</h3>
-    <h5>{props.location}</h5>
-    <div>
-      <p>{props.description}</p>
-    </div>
-  </div>
-);
+const JobDetails = (props) => {
+  const renderThis = props.selectJob.data ?
+    (
+      <div>
+        <h2>{props.selectJob.data.jobTitle}</h2>
+        <h2>{props.selectJob.data.company}</h2>
+        <h4>{props.selectJob.data.location}</h4>
+        <h4>{props.selectJob.data.date}</h4>
+        <h3>{props.selectJob.data.detailUrl}</h3>
+      </div>
+    )
+    : <div className="mui--text-center"><h1>Select a job</h1></div>;
 
-export default JobDetails;
+  return (
+    renderThis
+  );
+};
+
+const mapStateToProps = state => ({ selectJob: state.jobDetailsDisplay });
+
+export default connect(mapStateToProps)(JobDetails);

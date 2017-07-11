@@ -1,11 +1,12 @@
 import React from 'react';
-import { queueJobListing, deleteJob } from '../actions/actions';
 import { connect } from 'react-redux';
 import Container from 'muicss/lib/react/container';
 import Row from 'muicss/lib/react/row';
 import Col from 'muicss/lib/react/col';
 import Panel from 'muicss/lib/react/panel';
-import Stepper from 'react-stepper-horizontal';
+import JobStepper from './jobStepper';
+import { toggleJobListingStatus, deleteJob } from '../actions/actions';
+
 
 const Dashboard = props => (
   <Container>
@@ -86,7 +87,7 @@ const Dashboard = props => (
               <td>{job.company}</td>
               <td>{job.date}</td>
               <td>
-                <Stepper steps={[{ title: 'Start' }, { title: 'Application' }, { title: 'Submit' }, { title: 'Interview' }, { title: 'Offer' }]} activeStep={job.status} />
+                <JobStepper job={job} handleProgressClick={props.toggleJobStatus}/>
               </td>
             </tr>))
           }
@@ -100,7 +101,12 @@ const Dashboard = props => (
 const mapStateToProps = state => ({ userJobs: state.userJobs });
 const mapDispatchToProps = dispatch => ({
   addJobToQueue(job) {
-    dispatch(queueJobListing(job));
+    dispatch(toggleJobListingStatus(job, 0));
+  },
+  toggleJobStatus(numString, job) {
+    const incrementer = Number(numString);
+    console.log(job);
+    dispatch(toggleJobListingStatus(job, incrementer));
   },
   deleteJob(job) {
     dispatch(deleteJob(job));

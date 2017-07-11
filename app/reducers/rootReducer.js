@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { SET_SEARCH_TERM, UPDATE_JOB_LISTINGS, QUEUE_JOB_LISTING, DELETE_JOB, SEE_JOB_DETAILS } from '../actions/actionTypes';
+import { SET_SEARCH_TERM, UPDATE_JOB_LISTINGS, TOGGLE_JOB_LISTING_STATUS, DELETE_JOB, SEE_JOB_DETAILS } from '../actions/actionTypes';
 
 const mockUserJobsData = [
   { id: 1,
@@ -33,9 +33,9 @@ const jobAPIData = (state = {}, action) => {
   return state;
 };
 const userJobs = (state = mockUserJobsData, action) => {
-  if (action.type === QUEUE_JOB_LISTING) {
-    return state.map(job => ((job.id === action.payload.id) ?
-      Object.assign({}, job, { status: 0 }) : job));
+  if (action.type === TOGGLE_JOB_LISTING_STATUS) {
+    return state.map(job => ((job.id === action.payload.jobListing.id) ?
+      Object.assign({}, job, { status: action.payload.number }) : job));
   }
   if (action.type === DELETE_JOB) {
     return state.filter(job => job.id !== action.payload.id);

@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const Session = require('express-session');
+const bodyParser = require('body-parser');
 
 const app = express();
 const apiRouter = require('./router/apiRouter');
@@ -19,6 +20,7 @@ app.use(cookieParser);
 require('./router/passport.js')(passport);
 
 app.use(Session({ secret: 'hippos', resave: true, saveUninitialized: true }));
+app.use(bodyParser.json());
 app.use(passport.initialize());
 app.use(passport.session());
 

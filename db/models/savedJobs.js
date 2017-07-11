@@ -4,7 +4,7 @@ const User = require('./User.js');
 
 const SavedJobs = db.define('SavedJobs', {
   status: {
-    type: Sequelize.STRING,
+    type: Sequelize.INTEGER,
   },
   contact_name: {
     type: Sequelize.STRING,

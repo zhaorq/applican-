@@ -48,6 +48,7 @@
   "dependencies": {
     "axios": "^0.16.2",
     "babel-plugin-transform-commonjs-es2015-modules": "^3.0.2",
+    "body-parser": "^1.17.2",
     "cookie-parser": "^1.4.3",
     "express": "^4.15.3",
     "express-session": "^1.15.3",
@@ -61,6 +62,7 @@
     "rc-progress": "^2.2.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
+    "react-mdl": "^1.10.3",
     "react-redux": "^5.0.5",
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",

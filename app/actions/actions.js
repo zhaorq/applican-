@@ -1,5 +1,5 @@
 
-import { SET_SEARCH_TERM, UPDATE_JOB_LISTINGS, QUEUE_JOB_LISTING, DELETE_JOB, SEE_JOB_DETAILS } from './actionTypes';
+import { SET_SEARCH_TERM, UPDATE_JOB_LISTINGS, QUEUE_JOB_LISTING, DELETE_JOB, SEE_JOB_DETAILS, SET_JOB_DESC } from './actionTypes';
 
 export function setSearchTerm(searchTerm) {
   return { type: SET_SEARCH_TERM, payload: searchTerm };
@@ -19,4 +19,8 @@ export function deleteJob(jobListing) {
 
 export function selectJobDetails(jobDetail) {
   return { type: SEE_JOB_DETAILS, payload: jobDetail };
+}
+
+export function setJobDesc(jobDesc) {
+  return { type: SET_JOB_DESC, payload: jobDesc };
 }

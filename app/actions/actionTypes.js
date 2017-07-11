@@ -4,3 +4,4 @@ export const SAVE_JOB_LISTING = 'SAVE_JOB_LISTING';
 export const QUEUE_JOB_LISTING = 'QUEUE_JOB_LISTING';
 export const DELETE_JOB = 'DELETE_JOB';
 export const SEE_JOB_DETAILS = 'SEE_JOB_DETAILS';
+export const SET_JOB_DESC = 'SET_JOB_DESC';

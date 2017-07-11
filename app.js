@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const bodyParser = require('body-parser');
 
 const app = express();
 const apiRouter = require('./router/apiRouter');
@@ -49,6 +50,7 @@ passport.deserializeUser((id, done) => { // eslint-disable-line unexpected funct
 });
 
 // MIDDLEWARE
+app.use(bodyParser.json());
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(cookieParser);

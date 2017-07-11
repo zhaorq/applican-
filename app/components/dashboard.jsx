@@ -117,7 +117,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch(deleteJobAPI(job));
   },
   fetchJobs() {
-    dispatch(fetchUserJobs);
+    dispatch(fetchUserJobs());
   },
 
 });

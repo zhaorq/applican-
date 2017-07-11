@@ -2,6 +2,10 @@ const axios = require('axios');
 const router = require('express').Router();
 const controllers = require('../db/controllers/controller');
 
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated()) { return next(); }
+  res.redirect('/');
+}
 const Xray = require('x-ray');
 
 const xR = Xray();
@@ -24,8 +28,8 @@ router.post('/dice', (req, res) => {
   console.log('awefa', res);
 });
 
-router.get('/user/:id', controllers.getUserJobs);
-router.put('/jobs/:id', controllers.updateJobStatus);
-router.delete('/jobs/:id', controllers.deleteJob);
+router.get('/user', isLoggedIn, controllers.getUserJobs);
+router.put('/jobs/:id', isLoggedIn, controllers.updateJobStatus);
+router.delete('/jobs/:id', isLoggedIn, controllers.deleteJob);
 
 module.exports = router;

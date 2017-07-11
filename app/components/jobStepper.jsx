@@ -8,7 +8,7 @@ const JobStepper = (props) => {
   const steps = stepsTitles.map(step => Object.assign({}, step,
     { onClick: event => props.handleProgressClick (event.target.innerText, props.job) }));
   return (
-    <Stepper steps={steps} activeStep={props.job.id} />
+    <Stepper steps={steps} activeStep={props.job.status} />
   );
 };
 

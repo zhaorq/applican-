@@ -48,6 +48,7 @@ const userJobs = (state = mockUserJobsData, action) => {
     return state.filter(job => job.id !== action.payload.id);
   }
   if (action.type === SET_USER_JOBS) {
+    console.log(action.payload);
     return action.payload;
   }
   return state;

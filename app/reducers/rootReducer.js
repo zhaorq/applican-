@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { SET_SEARCH_TERM, UPDATE_JOB_LISTINGS, TOGGLE_JOB_LISTING_STATUS, DELETE_JOB, SEE_JOB_DETAILS } from '../actions/actionTypes';
+import { SET_SEARCH_TERM, UPDATE_JOB_LISTINGS, TOGGLE_JOB_LISTING_STATUS, DELETE_JOB, SEE_JOB_DETAILS, SET_JOB_DESC } from '../actions/actionTypes';
 
 const mockUserJobsData = [
   { id: 1,
@@ -50,6 +50,13 @@ const jobDetailsDisplay = (state = {}, action) => {
   return state;
 };
 
-const rootReducer = combineReducers({ searchTerm, jobAPIData, jobDetailsDisplay, userJobs });
+const jobDesc = (state = {}, action) => {
+  if (action.type === SET_JOB_DESC) {
+    return Object.assign({}, state, { data: action.payload });
+  }
+  return state;
+};
+
+const rootReducer = combineReducers({ searchTerm, jobAPIData, jobDetailsDisplay, userJobs, jobDesc });
 
 export default rootReducer;

@@ -5,7 +5,7 @@ import Row from 'muicss/lib/react/row';
 import Col from 'muicss/lib/react/col';
 import Panel from 'muicss/lib/react/panel';
 import JobStepper from './jobStepper';
-import { toggleJobListingStatus, deleteJob } from '../actions/actions';
+import { updateJobStatusAPI, toggleJobListingStatus, deleteJob } from '../actions/actions';
 
 
 const Dashboard = props => (
@@ -101,12 +101,11 @@ const Dashboard = props => (
 const mapStateToProps = state => ({ userJobs: state.userJobs });
 const mapDispatchToProps = dispatch => ({
   addJobToQueue(job) {
-    dispatch(toggleJobListingStatus(job, 0));
+    dispatch(updateJobStatusAPI(job, 0));
   },
   toggleJobStatus(numString, job) {
     const incrementer = Number(numString);
-    console.log(job);
-    dispatch(toggleJobListingStatus(job, incrementer));
+    dispatch(updateJobStatusAPI(job, incrementer));
   },
   deleteJob(job) {
     dispatch(deleteJob(job));

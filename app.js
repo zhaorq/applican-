@@ -14,6 +14,9 @@ app.use(express.static(path.join(__dirname, '/public')));
 
 
 // MIDDLEWARE
+app.use(bodyParser.json());
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(cookieParser);
 
 // PASSPORT SETUP
@@ -30,12 +33,12 @@ app.use('/api', apiRouter);
 app.use('/auth', authRouter);
 
 //   app.get('/test', isLoggedIn, function(req, res) {
-//     res.send('blah blah'); 
+//     res.send('blah blah');
 //   });
 
 // function isLoggedIn(req, res, next) {
-//   // console.log('This is req.isAuthenticated: ', req.isAuthenticated); 
-//   // console.log('Session is: ', req.session.passport.user); //return 2, which is the user_id. 
+//   // console.log('This is req.isAuthenticated: ', req.isAuthenticated);
+//   // console.log('Session is: ', req.session.passport.user); //return 2, which is the user_id.
 //   if (req.isAuthenticated())
 //     return next();
 //   res.redirect('/');

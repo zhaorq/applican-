@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { selectJobDetails } from '../actions/actions';
+import axios from 'axios';
+import { selectJobDetails, setJobDesc } from '../actions/actions';
 
 class JobListEntry extends Component {
   constructor(props) {
@@ -12,6 +13,17 @@ class JobListEntry extends Component {
   selectJobHandle(e) {
     e.preventDefault();
     this.props.selectJob(this.props.job);
+
+    axios({
+      method: 'POST',
+      url: '/api/dice',
+      data: {
+        url: this.props.job.detailUrl,
+      },
+    })
+      .then((data) => {
+        this.props.setJobDesc(data.data);
+      });
   }
 
   render() {
@@ -30,6 +42,9 @@ class JobListEntry extends Component {
 const mapDispatchToProps = dispatch => ({
   selectJob(job) {
     dispatch(selectJobDetails(job));
+  },
+  setJobDesc(jobDesc) {
+    dispatch(setJobDesc(jobDesc));
   },
 });
 

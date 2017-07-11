@@ -3,11 +3,11 @@ const savedJobs = require('../models/savedJobs.js');
 
 exports.updateJobStatus = (req, res) => {
   const jobId = req.params.id;
-  const { newStatus } = req.body;
+  const { status } = req.body;
   savedJobs.findById(jobId)
     .then((job) => {
       if (job) {
-        return job.update({ status: newStatus });
+        return job.update({ status });
       }
       throw new Error('Job Not Found');
     })

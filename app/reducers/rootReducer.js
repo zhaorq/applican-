@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { SET_SEARCH_TERM, UPDATE_JOB_LISTINGS, TOGGLE_JOB_LISTING_STATUS, DELETE_JOB, SEE_JOB_DETAILS, SET_JOB_DESC, SET_USER_AUTH } from '../actions/actionTypes';
+import { SET_SEARCH_TERM, UPDATE_JOB_LISTINGS, TOGGLE_JOB_LISTING_STATUS, DELETE_JOB, SEE_JOB_DETAILS, SET_JOB_DESC, SET_USER_AUTH, SET_USER_JOBS } from '../actions/actionTypes';
 
 const mockUserJobsData = [
   { id: 1,
@@ -46,6 +46,9 @@ const userJobs = (state = mockUserJobsData, action) => {
   }
   if (action.type === DELETE_JOB) {
     return state.filter(job => job.id !== action.payload.id);
+  }
+  if (action.type === SET_USER_JOBS) {
+    return action.payload;
   }
   return state;
 };

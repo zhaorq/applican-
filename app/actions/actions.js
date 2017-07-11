@@ -53,3 +53,17 @@ export function fetchUserAuthStatus() {
       .catch(err => console.log(err));
   };
 }
+
+export function setUserJobs(jobs) {
+  return { type: SET_USER_AUTH, payload: jobs };
+}
+
+export function fetchUserJobs() {
+  return (dispatch) => {
+    axios.get('/user/')
+      .then((res) => {
+        return dispatch(setUserAuth(res.data.jobs));
+      })
+      .catch(err => console.log(err));
+  };
+}

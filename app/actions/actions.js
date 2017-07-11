@@ -20,16 +20,16 @@ export function updateJobStatusAPI(job, status) {
       .catch(err => console.log(err));
   };
 }
-export function deleteJobAPI(job, status) {
-  return (dispatch) => {
-    axios.delete(`/api/jobs/${job.id}`)
-      .then(() => dispatch(toggleJobListingStatus(job, status)))
-      .catch(err => console.log(err));
-  };
-}
 
 export function deleteJob(jobListing) {
   return { type: DELETE_JOB, payload: jobListing };
+}
+export function deleteJobAPI(job) {
+  return (dispatch) => {
+    axios.delete(`/api/jobs/${job.id}`)
+      .then(() => dispatch(deleteJob(job)))
+      .catch(err => console.log(err));
+  };
 }
 
 export function selectJobDetails(jobDetail) {

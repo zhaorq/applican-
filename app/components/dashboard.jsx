@@ -5,7 +5,7 @@ import Row from 'muicss/lib/react/row';
 import Col from 'muicss/lib/react/col';
 import Panel from 'muicss/lib/react/panel';
 import JobStepper from './jobStepper';
-import { updateJobStatusAPI, toggleJobListingStatus, deleteJob } from '../actions/actions';
+import { updateJobStatusAPI, toggleJobListingStatus, deleteJobAPI } from '../actions/actions';
 
 
 const Dashboard = props => (
@@ -108,7 +108,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch(updateJobStatusAPI(job, incrementer));
   },
   deleteJob(job) {
-    dispatch(deleteJob(job));
+    dispatch(deleteJobAPI(job));
   },
 });
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

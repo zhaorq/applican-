@@ -28,6 +28,6 @@ SavedJobs.belongsTo(User, {
 
 User.hasMany(SavedJobs, { foreignKey: 'user_id', constraints: false });
 
-SavedJobs.sync({ force: true });
+SavedJobs.sync();
 
 module.exports = SavedJobs;

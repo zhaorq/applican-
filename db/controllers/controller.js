@@ -1,6 +1,19 @@
 // const User = require('../models/User.js');
 const savedJobs = require('../models/savedJobs.js');
 
+exports.deleteJob = (req, res) => {
+  const jobId = req.params.id;
+  savedJobs.findById(jobId)
+    .then((job) => {
+      if (job) {
+        return job.destroy();
+      }
+      throw new Error('Job Not Found');
+    })
+    .then(() => res.status(200).send())
+    .catch(err => res.status(400).send(err));
+};
+
 exports.updateJobStatus = (req, res) => {
   const jobId = req.params.id;
   const { status } = req.body;
@@ -11,6 +24,6 @@ exports.updateJobStatus = (req, res) => {
       }
       throw new Error('Job Not Found');
     })
-    .then(() => res.sendStatus(200))
-    .catch(err => res.setStatus(400).send(err));
+    .then(() => res.status(200).send())
+    .catch(err => res.status(400).send(err));
 };

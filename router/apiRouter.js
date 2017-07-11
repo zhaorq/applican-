@@ -14,5 +14,6 @@ router.post('/search', (req, res) => {
 });
 
 router.put('/jobs/:id', controllers.updateJobStatus);
+router.delete('/jobs/:id', controllers.deleteJob);
 
 module.exports = router;

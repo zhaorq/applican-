@@ -28,6 +28,6 @@ SavedJobs.hasMany(Contacts, {
   constraints: false,
 });
 
-Contacts.sync({ force: true });
+Contacts.sync();
 
 module.exports = Contacts;

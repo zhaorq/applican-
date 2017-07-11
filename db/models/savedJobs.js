@@ -12,6 +12,9 @@ const SavedJobs = db.define('SavedJobs', {
   status: {
     type: Sequelize.INTEGER,
   },
+  position: {
+    type: Sequelize.STRING,
+  },
   applied_date: {
     type: Sequelize.DATE,
   },
@@ -28,6 +31,6 @@ SavedJobs.belongsTo(User, {
 
 User.hasMany(SavedJobs, { foreignKey: 'user_id', constraints: false });
 
-SavedJobs.sync({ force: true });
+SavedJobs.sync();
 
 module.exports = SavedJobs;

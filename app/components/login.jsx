@@ -44,6 +44,7 @@ class Login extends Component {
           <input type="password" onChange={e => this.changePassword(e)} name="password" />
           <button>Login</button>
         </form>
+        <a href="/auth/google">Login with Google</a>
         <Link to="/signup">Sign up!</Link>
       </div>
     );

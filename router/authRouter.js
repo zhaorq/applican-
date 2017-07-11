@@ -1,6 +1,11 @@
 const authRouter = require('express').Router();
 const passport = require('passport');
 
+// function isLoggedIn(req, res, next) {
+//   console.log('Session is: ', req.session.passport.user); // return 2, which is the user_id. 
+//   if (req.isAuthenticated()) { return next(); }
+//   res.redirect('/');
+// }
 
 // Google oauth route
 authRouter.get('/google',
@@ -14,6 +19,11 @@ authRouter.get('/google/callback',
     successRedirect: '/',
   }) // eslint-disable-line
 );
+
+authRouter.get('/checkAuth', (req, res) => {
+  res.status(200).json({
+    status: req.isAuthenticated() });
+});
 
 // authRouter.get('/success', (req, res) => {
 //  res.status(202).send('login success')

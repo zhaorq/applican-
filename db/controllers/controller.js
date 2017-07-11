@@ -1,5 +1,18 @@
 // const User = require('../models/User.js');
+const User = require('../models/savedJobs.js');
 const savedJobs = require('../models/savedJobs.js');
+
+exports.getUserJobs = (req, res) => {
+  const userId = req.params.id;
+  savedJobs.findAll({ where: { user_id: userId } })
+    .then((jobs) => {
+      if (jobs) {
+        res.status(200).send(jobs);
+      }
+      throw new Error('User Not Found');
+    })
+    .catch(err => res.status(400).send(err));
+};
 
 exports.deleteJob = (req, res) => {
   const jobId = req.params.id;

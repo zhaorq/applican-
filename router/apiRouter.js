@@ -24,6 +24,7 @@ router.post('/dice', (req, res) => {
   console.log('awefa', res);
 });
 
+router.get('/user/:id', controllers.getUserJobs);
 router.put('/jobs/:id', controllers.updateJobStatus);
 router.delete('/jobs/:id', controllers.deleteJob);
 

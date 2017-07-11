@@ -22,7 +22,6 @@ class Landing extends React.Component {
       .then((res) => {
         res.json()
           .then((data) => {
-            console.log(data);
             this.props.addAPIJobData(data);
             this.props.history.push('/search');
           });
@@ -59,3 +58,4 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Landing);
+

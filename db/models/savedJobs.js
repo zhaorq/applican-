@@ -3,14 +3,14 @@ const db = require('../db.js');
 const User = require('./User.js');
 
 const SavedJobs = db.define('SavedJobs', {
-  status: {
-    type: Sequelize.INTEGER,
+  company: {
+    type: Sequelize.STRING,
   },
   contact_name: {
     type: Sequelize.STRING,
   },
-  position: {
-    type: Sequelize.STRING,
+  status: {
+    type: Sequelize.INTEGER,
   },
   applied_date: {
     type: Sequelize.DATE,
@@ -22,12 +22,12 @@ const SavedJobs = db.define('SavedJobs', {
 
 SavedJobs.belongsTo(User, {
   as: 'user',
-  foreignKey: 'job_id',
+  foreignKey: 'user_id',
   constraints: false,
 });
 
-User.hasMany(SavedJobs, { foreignKey: 'job_id', constraints: false });
+User.hasMany(SavedJobs, { foreignKey: 'user_id', constraints: false });
 
-SavedJobs.sync();
+SavedJobs.sync({ force: true });
 
 module.exports = SavedJobs;

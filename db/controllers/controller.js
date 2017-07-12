@@ -42,3 +42,25 @@ exports.updateJobStatus = (req, res) => {
     .then(() => res.status(200).send())
     .catch(err => res.status(400).send(err));
 };
+
+exports.addJobtoUser = (req, res) => {
+  const userId = req.session.passport.user;
+  console.log('req.body', req.body.data);
+  savedJobs.findOrCreate({
+    where:
+      {
+        user_id: userId,
+        job_url: req.body.data.job_url,
+      },
+    defaults: {
+      position: req.body.data.position,
+      company: req.body.data.company,
+      location: req.body.data.location,
+      post_date: req.body.data.post_date,
+    },
+  })
+    .then((data) => {
+      console.log('dataaa', data);
+      res.json(data);
+    });
+};

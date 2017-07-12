@@ -26,7 +26,7 @@ router.post('/dice', (req, res) => {
   stream.pipe(res);
 });
 
-router.post('/jobs', controllers.addJobtoUser);
+router.post('/jobs', isLoggedIn, controllers.addJobtoUser);
 router.get('/user', isLoggedIn, controllers.getUserJobs);
 router.put('/jobs/:id', isLoggedIn, controllers.updateJobStatus);
 router.delete('/jobs/:id', isLoggedIn, controllers.deleteJob);

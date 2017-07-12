@@ -15,6 +15,7 @@ authRouter.get('/google/callback',
 );
 
 authRouter.get('/checkAuth', (req, res) => {
+  console.log('this is authenticated', req.isAuthenticated());
   res.status(200).json({
     status: req.isAuthenticated() });
 });
@@ -31,7 +32,7 @@ authRouter.get('/logout', (req, res) => {
 
 // authRouter.get('/success', (req, res) => {
 //  res.status(202).send('login success')
-// }) // this runs super slow as a success redirect. 
+// }) // this runs super slow as a success redirect.
 
 
 module.exports = authRouter;

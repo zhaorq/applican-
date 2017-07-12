@@ -14,7 +14,7 @@ const JobTable = props => (
             <span>
               <button
                 className="mui-btn mui-btn--fab mui-btn--danger mui-btn--small"
-                onClick={() => props.addJobToQueue(job)}
+                onClick={() => props.handleAddJobToQueue(job)}
               >+
               </button>
             </span>
@@ -29,4 +29,3 @@ const JobTable = props => (
 );
 
 export default JobTable;
-

@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Container from 'muicss/lib/react/container';
 import Row from 'muicss/lib/react/row';
 import Col from 'muicss/lib/react/col';
 import Panel from 'muicss/lib/react/panel';
-import JobStepper from './dashboard/jobStepper';
+import JobStepper from './jobStepper';
 import JobTable from './dashboard/jobTable';
 import { updateJobStatusAPI, deleteJobAPI, fetchUserJobs } from '../actions/actions';
 
@@ -57,14 +58,16 @@ class Dashboard extends Component {
             </thead>
             <tbody>
               {this.props.userJobs.filter(job => job.status >= 0).map(job =>
-                (<tr key={Math.random()}>
+                (<tr key={job.id}>
                   <td width={50}>
                     <button
                       className="mui-btn mui-btn--fab mui-btn--accent mui-btn--small"
                       onClick={() => this.props.deleteJob(job)}
                     >+</button>
                   </td>
-                  <td>{job.jobTitle}</td>
+                  <td>
+                    <Link to={`/jobs/${job.id}`}>{job.position}</Link>
+                  </td>
                   <td>{job.company}</td>
                   <td>{job.date}</td>
                   <td>

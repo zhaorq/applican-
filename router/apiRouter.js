@@ -11,8 +11,7 @@ const Xray = require('x-ray');
 const xR = Xray();
 // search from Dice's API.
 router.post('/search', (req, res) => {
-  console.log(req.body);
-  axios.get(`http://service.dice.com/api/rest/jobsearch/v1/simple.json?text=${req.body.data.text}&city=Atlanta`) // eslint-disable-line
+  axios.get(`http://service.dice.com/api/rest/jobsearch/v1/simple.json?text=${req.body.data.text}&city=${req.body.data.location}`) // eslint-disable-line
     .then((response) => {
       res.send(response.data.resultItemList);
     })

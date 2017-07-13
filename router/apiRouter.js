@@ -30,5 +30,8 @@ router.post('/jobs', isLoggedIn, controllers.addJobtoUser);
 router.get('/user', isLoggedIn, controllers.getUserJobs);
 router.put('/jobs/:id', isLoggedIn, controllers.updateJobStatus);
 router.delete('/jobs/:id', isLoggedIn, controllers.deleteJob);
+router.post('/contacts', controllers.addContact);
+router.get('/contacts', controllers.getContacts);
+router.delete('/contacts/:id', controllers.removeContact);
 
 module.exports = router;

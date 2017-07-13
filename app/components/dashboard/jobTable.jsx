@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const JobTable = props => (
   <table className="mui-table">
@@ -19,9 +20,10 @@ const JobTable = props => (
               </button>
             </span>
           </td>
-          <td>{job.position}</td>
+          <td>
+            <Link to={`/jobs/${job.id}`}>{job.position}</Link></td>
           <td>{job.company}</td>
-          <td>{job.updatedAt}</td>
+          <td>{job.post_date}</td>
         </tr>))
       }
     </tbody>

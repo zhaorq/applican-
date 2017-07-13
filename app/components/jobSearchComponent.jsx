@@ -54,11 +54,12 @@ class JobSearch extends Component {
           <input
             type="text"
             onChange={e => this.handleSearchTermChange(e)}
+            placeholder="Job Type"
           />
           <input
             type="text"
             onChange={e => this.handleSearchLocationChange(e)}
-            placeholder="location"
+            placeholder="Zip Code"
           />
           <input type="submit" value="Submit" />
         </form>

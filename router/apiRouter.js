@@ -26,5 +26,8 @@ router.post('/dice', (req, res) => {
 
 router.put('/jobs/:id', controllers.updateJobStatus);
 router.delete('/jobs/:id', controllers.deleteJob);
+router.post('/contacts', controllers.addContact);
+router.get('/contacts', controllers.getContacts);
+router.delete('/contacts/:id', controllers.removeContact);
 
 module.exports = router;

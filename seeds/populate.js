@@ -13,9 +13,9 @@ User.bulkCreate([
 });
 
 SavedJobs.bulkCreate([
-  { company: 'Hack Reactor', contact_name: 'Jeff Harrison', status: 1, applied_date: new Date('June 30, 2017 10:15:00'), position: 'HiR', notes: 'looks like a cool place :)', user_id: 2 },
-  { company: 'Shake Shack', contact_name: 'Senor Shake', status: -1, applied_date: new Date('July 10, 2017 12:00:00'), position: 'Junior Burger api engineer', notes: 'delicious burger api', user_id: 1 },
-  { company: 'CyberCoders', contact_name: '', status: 3, applied_date: new Date(), notes: '' },
+  { company: 'Hack Reactor', status: 1, applied_date: new Date('June 30, 2017 10:15:00'), position: 'HiR', notes: 'looks like a cool place :)', user_id: 2 },
+  { company: 'Shake Shack', status: -1, applied_date: new Date('July 10, 2017 12:00:00'), position: 'Junior Burger api engineer', notes: 'delicious burger api', user_id: 1 },
+  { company: 'CyberCoders', status: 3, applied_date: new Date(), notes: '' },
 ]).then(() => {
   console.log('seeded jobs');
 });

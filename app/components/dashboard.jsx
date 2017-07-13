@@ -86,7 +86,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch(updateJobStatusAPI(job, 0));
   },
   toggleJobStatus(numString, job) {
-    const incrementer = Number(numString);
+    const incrementer = Number(numString) - 1;
     dispatch(updateJobStatusAPI(job, incrementer));
   },
   deleteJob(job) {

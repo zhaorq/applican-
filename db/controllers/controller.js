@@ -18,9 +18,10 @@ exports.getUserJobs = (req, res) => {
 
 exports.deleteJob = (req, res) => {
   const jobId = req.params.id;
+  const userId = req.user.id;
   savedJobs.findById(jobId)
     .then((job) => {
-      if (job) {
+      if (job && job.user_id === userId) {
         return job.destroy();
       }
       throw new Error('Job Not Found');
@@ -45,7 +46,6 @@ exports.updateJobStatus = (req, res) => {
 
 exports.addJobtoUser = (req, res) => {
   const userId = req.session.passport.user;
-  console.log('req.body', req.body.data);
   savedJobs.findOrCreate({
     where:
       {
@@ -60,7 +60,6 @@ exports.addJobtoUser = (req, res) => {
     },
   })
     .then((data) => {
-      console.log('dataaa', data);
       res.json(data);
     });
 };

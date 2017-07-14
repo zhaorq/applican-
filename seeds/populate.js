@@ -22,7 +22,7 @@ SavedJobs.bulkCreate([
 
 Contacts.bulkCreate([
   { name: 'Senor Shake', position: 'shake master', Email: 'shackattack@gmail.com', FollowUp: new Date('July 11, 2017 12:30:00'), job_id: 2 },
-  { name: 'Jeff Harrison', position: 'consulor', Email: 'jeff.harrison@hackreactor.com', FollowUp: new Date('July 3, 2017 1:13:00'), job_id: 1 },
+  { name: 'Jeff Harrison', position: 'conselor', Email: 'jeff.harrison@hackreactor.com', FollowUp: new Date('July 3, 2017 1:13:00'), job_id: 1 },
 ]).then(() => {
   console.log('seeded contacts');
 });

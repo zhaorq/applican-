@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+
+import Container from 'muicss/lib/react/container';
+import Row from 'muicss/lib/react/row';
+import Col from 'muicss/lib/react/col';
+import Panel from 'muicss/lib/react/panel';
 import JobStepper from './jobStepper';
 import JobTable from './dashboard/jobTable';
 import { updateJobStatusAPI, deleteJobAPI, fetchUserJobs } from '../actions/actions';

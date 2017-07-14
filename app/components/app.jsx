@@ -10,6 +10,8 @@ import Login from './login';
 import Dashboard from './dashboard';
 import JobInProgress from './jobinprogress';
 import store from '../store/store';
+import ContactInfo from './ContactInfo';
+
 
 
 const App = () => (
@@ -22,6 +24,7 @@ const App = () => (
       <Route exact path="/login" component={Login} />
       <Route exact path="/dashboard" component={Dashboard} />
       <Route path="/jobs/:id" component={JobInProgress} />
+      <Route exact path="/contacts" component={ContactInfo} />
     </div>
   </Provider >
 );

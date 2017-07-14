@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+
 import Container from 'muicss/lib/react/container';
 import Row from 'muicss/lib/react/row';
 import Col from 'muicss/lib/react/col';
@@ -8,43 +9,54 @@ import Panel from 'muicss/lib/react/panel';
 import JobStepper from './jobStepper';
 import JobTable from './dashboard/jobTable';
 import { updateJobStatusAPI, deleteJobAPI, fetchUserJobs } from '../actions/actions';
+import '../../public/assets/css/dashboard.css';
 
 class Dashboard extends Component {
+  constructor(props) {
+    super(props);
+    this.state = ({ filterValue: 'all' });
+    this.handleFilterChange = this.handleFilterChange.bind(this);
+  }
   componentDidMount() {
     this.props.fetchJobs();
   }
+  handleFilterChange(evt) {
+    this.setState({ filterValue: evt.target.value });
+  }
+
   render() {
     return (
-      <Container>
+      <div className="mui-container-fluid">
         <h2>Job Search Summary</h2>
-        <Row>
-          <Col xs="2">
-            <Panel>
-              <div>
+        <div className="mui-row">
+          <div className="mui-panel mui-col-md-2">
             Total Job Applications
-              </div>
-            </Panel>
-          </Col>
-          <Col xs="2" >
-            <Panel>
-              <div>
+          </div>
+          <div className="mui-panel mui-col-md-2" >
             Total Job Applications
-              </div>
-            </Panel>
-          </Col>
-          <Col xs="6">
-            <Panel>
-              <div>
+          </div>
+          <div className="mui-panel mui-col-md-8">
             Chart
-              </div>
-            </Panel>
-          </Col>
-        </Row>
-        <Row>
+          </div>
+        </div>
+        <div className="filterBox">
+          <span className="filter-label">Show </span>
+          <select value={this.state.filterValue} onChange={this.handleFilterChange}>
+            <option value="all"> All Jobs</option>
+            <option value="saved"> Saved Jobs</option>
+            <option value="progress">Jobs in Progress</option>
+            <option value="complete">Completed Jobs</option>
+          </select>
+        </div>
+        {(this.state.filterValue === 'all' || this.state.filterValue === 'saved') &&
+        (<div>
           <h3>Saved Jobs</h3>
           <JobTable userJobs={this.props.userJobs} handleAddJobToQueue={this.props.addJobToQueue} />
-        </Row>
-        <Row>
+        </div>
+        )}
+
+        {(this.state.filterValue === 'all' || this.state.filterValue === 'progress') &&
+        (<div>
           <h3>In Progress</h3>
           <table className="mui-table">
             <thead>
@@ -57,7 +69,7 @@ class Dashboard extends Component {
               </tr>
             </thead>
             <tbody>
-              {this.props.userJobs.filter(job => job.status >= 0).map(job =>
+              {this.props.userJobs.filter(job => job.status >= 0 && job.status < 5).map(job =>
                 (<tr key={job.id}>
                   <td width={50}>
                     <button
@@ -77,8 +89,9 @@ class Dashboard extends Component {
               }
             </tbody>
           </table>
-        </Row>
-      </Container>
+        </div>
+        )}
+      </div>
     );
   }
 }

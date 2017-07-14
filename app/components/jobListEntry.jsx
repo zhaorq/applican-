@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router'
 import axios from 'axios';
 import { selectJobDetails, setJobDesc } from '../actions/actions';
 
@@ -14,7 +15,6 @@ class JobListEntry extends Component {
   selectJobHandle(e) {
     e.preventDefault();
     this.props.selectJob(this.props.job);
-
     axios({
       method: 'POST',
       url: '/api/dice',
@@ -28,7 +28,10 @@ class JobListEntry extends Component {
   }
 
   saveJob(e) {
-    e.preventDefault();
+    if (!this.props.user) {
+      this.props.history.push('/login');
+      return;
+    }
     axios.post('/api/jobs', {
       data: {
         position: this.props.job.jobTitle,
@@ -71,4 +74,4 @@ const mapDispatchToProps = dispatch => ({
   },
 });
 
-export default connect(mapDispatchToProps, mapDispatchToProps)(JobListEntry);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(JobListEntry));

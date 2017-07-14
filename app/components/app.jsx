@@ -13,6 +13,7 @@ import store from '../store/store';
 import ContactInfo from './ContactInfo';
 
 
+
 const App = () => (
   <Provider store={store}>
     <div>

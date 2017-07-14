@@ -8,7 +8,7 @@ const Search = props => (
     <JobSearch history={props.history} />
     <div className="mui-row">
       <div className="mui-col-md-5 mui-col-md-offset-1">
-        <JobList />
+        <JobList history={props.history}/>
       </div>
       <div className="mui-col-md-5">
         <JobDetails />

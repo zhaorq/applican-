@@ -5,7 +5,7 @@ import JobListEntry from './jobListEntry';
 const JobList = props => (
   <div>
     {
-      props.jobAPIData.data.map((job, idx) => (<JobListEntry job={job} key={idx} />))
+      props.jobAPIData.data.map((job, idx) => (<JobListEntry job={job} key={idx} history={props.history} />))
     }
   </div>
 );

@@ -78,7 +78,7 @@ class Dashboard extends Component {
                     >+</button>
                   </td>
                   <td>
-                    <Link to={`/jobs/${job.post_id}`}>{job.position}</Link>
+                    <Link to={`/jobs/${job.id}`}>{job.position}</Link>
                   </td>
                   <td>{job.company}</td>
                   <td>{new Date(job.post_date).toDateString()}</td>

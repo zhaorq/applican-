@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import Contacts from './Contacts';
+import Contacts from './ContactsListEntry';
 
 export default class ContactInfo extends React.Component {
   constructor(props) {

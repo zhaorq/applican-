@@ -24,7 +24,7 @@ const JobTable = props => (
             <Link to={`/jobs/${job.id}`}>{job.position}</Link>
           </td>
           <td>{job.company}</td>
-          <td>{job.post_date}</td>
+          <td>{new Date(job.post_date).toDateString()}</td>
         </tr>))
       }
     </tbody>

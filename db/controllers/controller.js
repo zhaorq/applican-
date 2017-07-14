@@ -62,6 +62,9 @@ exports.addJobtoUser = (req, res) => {
   })
     .then((data) => {
       res.json(data);
+    })
+    .catch(err => res.status(400).send(err));
+};
 
 exports.addContact = (req, res) => {
   const name = req.body.name || null;
@@ -123,7 +126,7 @@ exports.addContact = (req, res) => {
 exports.removeContact = (req, res) => {
   const contactId = req.params.id;
   Contacts.findById(contactId)
-    .then((contact) => {
+    .then(contact => {
       if (contact) {
         return contact.destroy();
       }
@@ -135,10 +138,10 @@ exports.removeContact = (req, res) => {
 
 exports.getContacts = (req, res) => {
   Contacts.findAll()
-    .then((contacts) => {
+    .then(contacts => {
       res.status(200).send(contacts);
     })
-    .catch((err) => {
+    .catch(err => {
       res.status(400).send(err);
     });
 };

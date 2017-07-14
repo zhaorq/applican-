@@ -81,7 +81,7 @@ class Dashboard extends Component {
                     <Link to={`/jobs/${job.id}`}>{job.position}</Link>
                   </td>
                   <td>{job.company}</td>
-                  <td>{job.date}</td>
+                  <td>{new Date(job.post_date).toDateString()}</td>
                   <td>
                     <JobStepper job={job} handleProgressClick={this.props.toggleJobStatus} />
                   </td>

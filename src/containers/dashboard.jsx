@@ -72,6 +72,7 @@ class Dashboard extends Component {
             <thead>
               <tr>
                 <th>Remove</th>
+                <th>Add Contact</th>
                 <th>Job Title</th>
                 <th>Company</th>
                 <th>Date</th>
@@ -85,6 +86,15 @@ class Dashboard extends Component {
                     <button onClick={() => this.props.deleteJob(job)}>
                       <MDDelete size={25} />
                     </button>
+                  </td>
+                  <td width={50}>
+                    <form>
+                      <input type="text" name="name" value="Name" />
+                      <input type="text" name="position" value="Position" />
+                      <input type="text" name="Email" value="Email" />
+                      <input type="date" name="FollowUp" value="Follow up date" />
+                      <input type="submit" />
+                    </form>
                   </td>
                   <td>
                     <Link to={`/jobs/${job.id}`}>{job.position}</Link>
@@ -128,6 +138,9 @@ const mapDispatchToProps = dispatch => ({
   },
   toggleSortFilter(evt) {
     dispatch(setSortFilter(evt.target.value));
+  },
+  addContact(name, position, Email, FollowUp) {
+    dispatch(addContact(name, position, Email, FollowUp));
   },
 });
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

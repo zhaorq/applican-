@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Appbar from 'muicss/lib/react/appbar';
-import { fetchUserAuthStatus } from '../actions/actions';
+import { fetchUserAuthStatus } from '../../actions/actions';
 
 class NavBar extends Component {
   componentDidMount() {

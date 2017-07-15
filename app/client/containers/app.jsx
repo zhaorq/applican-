@@ -9,8 +9,8 @@ import Signup from './signup';
 import Login from './login';
 import Dashboard from './dashboard';
 import JobInProgress from './jobinprogress';
-import store from '../store/store';
-import ContactInfo from './ContactInfo';
+import store from '../../store/store';
+import ContactInfo from '../components/jobInProgress/ContactInfo';
 
 
 

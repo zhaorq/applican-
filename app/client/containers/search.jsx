@@ -1,7 +1,7 @@
 import React from 'react';
-import JobDetails from './jobDetailsComponent';
-import JobList from './jobList';
-import JobSearch from './jobSearchComponent';
+import JobDetails from '../components/searchPage/jobDetails';
+import JobList from '../components/searchPage/jobList';
+import JobSearch from '../shared/jobSearch';
 
 const Search = props => (
   <div>

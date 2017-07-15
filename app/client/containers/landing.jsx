@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import JobSearch from './jobSearchComponent';
+import JobSearch from '../shared/jobSearch';
 
 class Landing extends Component {
   constructor(props) {

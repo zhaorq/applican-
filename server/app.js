@@ -43,7 +43,7 @@ app.use('/auth', authRouter);
 
 // Automatically redirects to index.html for React-Router
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '/public', 'index.html'));
+  res.sendFile(path.join(__dirname, '../public', 'index.html'));
 });
 
 // INIT

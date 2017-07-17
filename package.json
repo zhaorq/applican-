@@ -4,9 +4,9 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "node server/app.js",
     "test": "jest",
-    "nodemon": "nodemon app.js & webpack -d --watch",
+    "nodemon": "nodemon server/app.js & webpack -d --watch",
     "webpack": "webpack -d --watch",
     "lint": "eslint *.{js,jsx} **/*.{js,jsx}"
   },

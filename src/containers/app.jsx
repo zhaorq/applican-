@@ -10,7 +10,7 @@ import Login from './login';
 import Dashboard from './dashboard';
 import JobInProgress from './jobinprogress';
 import store from '../store/store';
-import ContactInfo from './ContactInfo';
+import ContactInfo from '../components/jobInProgress/ContactInfo';
 
 
 

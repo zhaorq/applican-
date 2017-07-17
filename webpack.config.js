@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   context: __dirname,
-  entry: './app/index.jsx',
+  entry: './src/index.jsx',
   devtool: 'source-map',
   output: {
     path: path.join(__dirname, 'public'),

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { UPDATE_JOB_LISTINGS, TOGGLE_JOB_LISTING_STATUS, DELETE_JOB, SET_USER_JOBS, SET_SORT_FILTER } from './actionTypes';
+import { UPDATE_JOB_LISTINGS, TOGGLE_JOB_LISTING_STATUS, DELETE_JOB, SET_USER_JOBS, SET_SORT_FILTER, ADD_CONTACT } from './actionTypes';
 
 export function updateJobListings(jobListings) {
   return { type: UPDATE_JOB_LISTINGS, payload: jobListings };
@@ -45,4 +45,8 @@ export function fetchUserJobs() {
 
 export function setSortFilter(filter) {
   return { type: SET_SORT_FILTER, payload: filter };
+}
+
+export function addContact(name, position, Email, FollowUp) {
+  return { type: ADD_CONTACT, payload: { name, position, Email, FollowUp } };
 }

@@ -64,3 +64,6 @@ db/config.keys.js
 public/bundle.js
 public.bundle.js.map
 
+# Build scripts
+/bin
+

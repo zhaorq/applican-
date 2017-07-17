@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Header, Icon, Button } from 'semantic-ui-react';
+import { Header, Icon } from 'semantic-ui-react';
 import { updateJobStatusAPI, deleteJobAPI } from '../actions/actions';
-import JobStepper from './jobStepper';
-import Contacts from './contacts';
+import JobStepper from '../components/shared/jobStepper/jobStepper';
+import Contacts from '../components/jobInProgress/contacts';
 
 const JobInProgress = props => (
   <container>

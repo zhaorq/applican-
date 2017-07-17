@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router'
 import axios from 'axios';
-import { selectJobDetails, setJobDesc } from '../actions/actions';
+import { selectJobDetails, setJobDesc } from '../../actions/actions';
 
 class JobListEntry extends Component {
   constructor(props) {

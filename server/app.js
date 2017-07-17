@@ -10,7 +10,7 @@ const cookieParser = require('cookie-parser')();
 const passport = require('passport');
 
 
-app.use(express.static(path.join(__dirname, '/public')));
+app.use(express.static(path.join(__dirname, '../public/')));
 
 
 // MIDDLEWARE

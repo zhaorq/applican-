@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
-import { setSearchTerm, updateJobListings } from '../actions/actions';
+import { setSearchTerm, updateJobListings } from '../../actions/actions';
 
 class JobSearch extends Component {
   constructor(props) {

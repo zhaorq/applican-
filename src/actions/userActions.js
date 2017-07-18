@@ -36,7 +36,6 @@ export function fetchUserJobs() {
   return (dispatch) => {
     axios.get('api/user/')
       .then((res) => {
-        console.log(res.data);
         return dispatch(setUserJobs(res.data));
       })
       .catch(err => console.log(err));
@@ -49,4 +48,14 @@ export function setSortFilter(filter) {
 
 export function addContact(name, position, Email, FollowUp) {
   return { type: ADD_CONTACT, payload: { name, position, Email, FollowUp } };
+}
+
+export function addContactApi(name, position, Email, FollowUp) {
+  return (dispatch) => {
+    axios.post('api/contacts', { name, position, Email, FollowUp } )
+      .then((res) => {
+        return dispatch(addContact(name, position, Email, FollowUp ));
+      })
+      .catch(err => console.error(err));
+  };
 }

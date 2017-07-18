@@ -73,7 +73,13 @@ const sortFilter = (state = '', action) => {
   return state;
 };
 
+const addContact = (state = {}, action) => {
+  if (action.type === ADD_CONTACT) {
+    return Object.assign({}, state, { data: action.payload });
+  }
+  return state;
+};
 
-const rootReducer = combineReducers({ user, searchTerm, jobAPIData, jobDetailsDisplay, userJobs, jobDesc, sortFilter });
+const rootReducer = combineReducers({ user, searchTerm, jobAPIData, jobDetailsDisplay, userJobs, jobDesc, sortFilter, addContact });
 
 export default rootReducer;

@@ -1,5 +1,9 @@
 import { combineReducers } from 'redux';
+<<<<<<< 94da379cd2e4ccf255bfb1a80845d7ba654810f9
 import { SET_SEARCH_TERM, UPDATE_JOB_LISTINGS, TOGGLE_JOB_LISTING_STATUS, DELETE_JOB, SEE_JOB_DETAILS, SET_JOB_DESC, SET_USER_AUTH, SET_USER_JOBS, SET_SORT_FILTER, ADD_CONTACT } from '../actions/actionTypes';
+=======
+import { SET_SEARCH_TERM, UPDATE_JOB_LISTINGS, TOGGLE_JOB_LISTING_STATUS, DELETE_JOB, SEE_JOB_DETAILS, SET_JOB_DESC, SET_USER_AUTH, SET_USER_JOBS, ADD_CONTACT, SET_SORT_FILTER } from '../actions/actionTypes';
+>>>>>>> refactor(actions): resolve merge conflicts in actions with toggle filter
 
 const mockUserJobsData = [
   { id: 1,
@@ -17,6 +21,11 @@ const mockUserJobsData = [
     status: 4,
   },
 ];
+<<<<<<< 94da379cd2e4ccf255bfb1a80845d7ba654810f9
+=======
+
+
+>>>>>>> refactor(actions): resolve merge conflicts in actions with toggle filter
 
 const user = (state = false, action) => {
   if (action.type === SET_USER_AUTH) {

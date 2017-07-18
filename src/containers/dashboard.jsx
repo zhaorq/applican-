@@ -7,6 +7,7 @@ import { updateJobStatusAPI, deleteJobAPI, fetchUserJobs, setSortFilter } from '
 import getSortedJobs from '../selectors/jobs';
 import '../styles/css/dashboard.css';
 
+
 class Dashboard extends Component {
   constructor(props) {
     super(props);
@@ -49,6 +50,7 @@ class Dashboard extends Component {
           <select onChange={this.props.toggleSortFilter}>
             <option value="DEFAULT"> Default</option>
             <option value="BY_PROGRESS"> By Progress</option>
+            <option value="BY_DATE"> By Progress</option>
           </select>
         </div>
         {(this.state.filterValue === 'all' || this.state.filterValue === 'saved') &&

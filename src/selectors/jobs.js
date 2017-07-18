@@ -7,9 +7,10 @@ const getSortedJobs = createSelector(
   getSortFilter,
   getJobs,
   (sortFilter, userJobs) => {
-    console.log(sortFilter);
     switch (sortFilter) {
       case 'BY_PROGRESS':
+        return userJobs.slice().sort((jobA, jobB) => jobA.status - jobB.status);
+      case 'BY_DATE':
         return userJobs.slice().sort((jobA, jobB) => jobA.status - jobB.status);
       default:
         return userJobs;

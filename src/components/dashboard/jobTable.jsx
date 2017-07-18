@@ -9,8 +9,9 @@ const JobTable = props => (
       </tr>
     </thead>
     <tbody>
-      {props.userJobs.filter(job => job.status < 0).map(job =>
+      {props.userJobs.filter(job => job.status <= props.filter).map(job =>
         (<tr key={job.id}>
+          {props.handleAddJobToQueue &&
           <td width={50}>
             <span>
               <button
@@ -20,6 +21,7 @@ const JobTable = props => (
               </button>
             </span>
           </td>
+          }
           <td>
             <Link to={`/jobs/${job.id}`}>{job.position}</Link>
           </td>

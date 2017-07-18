@@ -103,9 +103,6 @@ class Dashboard extends Component {
                     </button>
                   </td>
                   <td width={50}>
-
-
-
                     <form onSubmit={(e) => {
                       e.preventDefault();
                       this.props.addContact(this.state.name, this.state.position, this.state.Email, this.state.FollowUp, job.id);
@@ -117,11 +114,6 @@ class Dashboard extends Component {
                       <input type="date" name="FollowUp" value={this.state.FollowUp} onChange={this.handleFollowUpChange} />
                       <input type="submit" />
                     </form>
-
-
-
-
-
                   </td>
                   <td>
                     <Link to={`/jobs/${job.id}`}>{job.position}</Link>

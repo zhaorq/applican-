@@ -15,3 +15,13 @@ export function setJobDesc(jobDesc) {
 export function addContact(name, position, Email, FollowUp) {
   return { type: ADD_CONTACT, payload: { name, position, Email, FollowUp } };
 }
+
+export function addContactApi(name, position, Email, FollowUp) {
+  return (dispatch) => {
+    axios.post('api/contacts', { name, position, Email, FollowUp } )
+      .then((res) => {
+        return dispatch(addContact(name, position, Email, FollowUp ));
+      })
+      .catch(err => console.error(err));
+  };
+}

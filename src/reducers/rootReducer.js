@@ -78,6 +78,10 @@ const jobDesc = (state = {}, action) => {
 const sortFilter = (state = '', action) => {
   if (action.type === SET_SORT_FILTER) {
     return action.payload;
+
+const addContact = (state = {}, action) => {
+  if (action.type === ADD_CONTACT) {
+    return Object.assign({}, state, { data: action.payload });
   }
   return state;
 };

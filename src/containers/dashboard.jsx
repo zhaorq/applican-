@@ -91,7 +91,7 @@ class Dashboard extends Component {
                   <td width={50}>
                     <AddContact jobId={job.id}/>
                   </td>
-                  <td>
+                  <td>-
                     <Link to={`/jobs/${job.id}`}>{job.position}</Link>
                   </td>
                   <td>{job.company}</td>

@@ -105,29 +105,7 @@ class Dashboard extends Component {
                     </button>
                   </td>
                   <td width={50}>
-<<<<<<< 8d9a2981810403f7781977e8fe1d98ff4b626264
                     <AddContact jobId={job.id}/>
-=======
-
-
-
-                    <form onSubmit={(e) => {
-                      e.preventDefault();
-                      this.props.addContact(this.state.name, this.state.position, this.state.Email, this.state.FollowUp, job.id);
-                    }}
-                    >
-                      <input type="text" name="name" value={this.state.name} onChange={this.handleNameChange} />
-                      <input type="text" name="position" value={this.state.position} onChange={this.handlePositionChange} />
-                      <input type="text" name="Email" value={this.state.Email} onChange={this.handleEmailChange} />
-                      <input type="date" name="FollowUp" value={this.state.FollowUp} onChange={this.handleFollowUpChange} />
-                      <input type="submit" />
-                    </form>
-
-
-
-
-
->>>>>>> feat(contacts): add user initiated add contact feature
                   </td>
                   <td>-
                     <Link to={`/jobs/${job.id}`}>{job.position}</Link>

@@ -45,17 +45,3 @@ export function fetchUserJobs() {
 export function setSortFilter(filter) {
   return { type: SET_SORT_FILTER, payload: filter };
 }
-
-export function addContact(name, position, Email, FollowUp, id) {
-  return { type: ADD_CONTACT, payload: { name, position, Email, FollowUp, id } };
-}
-
-export function addContactApi(name, position, Email, FollowUp, id) {
-  return (dispatch) => {
-    axios.post('api/contacts', { name, position, Email, FollowUp, id } )
-      .then((res) => {
-        return dispatch(addContact(name, position, Email, FollowUp, id ));
-      })
-      .catch(err => console.error(err));
-  };
-}

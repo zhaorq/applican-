@@ -78,6 +78,9 @@ const jobDesc = (state = {}, action) => {
 const sortFilter = (state = '', action) => {
   if (action.type === SET_SORT_FILTER) {
     return action.payload;
+  }
+  return state;
+};
 
 const addContact = (state = {}, action) => {
   if (action.type === ADD_CONTACT) {
@@ -94,5 +97,5 @@ const addContact = (state = {}, action) => {
 };
 
 const rootReducer = combineReducers({ user, searchTerm, jobAPIData, jobDetailsDisplay, userJobs, jobDesc, sortFilter, addContact });
-
 export default rootReducer;
+

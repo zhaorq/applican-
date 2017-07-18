@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import JobStepper from '../components/shared/jobStepper/jobStepper';
 import JobTable from '../components/dashboard/jobTable';
 import { updateJobStatusAPI, deleteJobAPI, fetchUserJobs } from '../actions/actions';
-import '../styles/css/dashboard.css';
 
 class Dashboard extends Component {
   constructor(props) {

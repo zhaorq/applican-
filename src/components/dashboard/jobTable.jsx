@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const JobTable = props => (
   <table className="mui-table">
     <tbody>
-      {props.userJobs.filter(job => job.status <= props.filter).map(job =>
+      {props.userJobs.filter(job => job.status === props.filter).map(job =>
         (<tr key={job.id}>
           {props.handleAddJobToQueue &&
           <td width={50}>

@@ -103,7 +103,7 @@ class Dashboard extends Component {
         {(this.state.filterValue === 'all' || this.state.filterValue === 'complete') &&
         (<div>
           <h3>Completed Jobs</h3>
-          <JobTable userJobs={this.props.userJobs} filter={5} />
+          <JobTable userJobs={this.props.userJobs} filter={4} />
         </div>
         )}
       </div>

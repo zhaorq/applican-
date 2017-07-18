@@ -1,13 +1,9 @@
 import React from 'react';
+import MDAdd from 'react-icons/md/add';
 import { Link } from 'react-router-dom';
 
 const JobTable = props => (
   <table className="mui-table">
-    <thead>
-      <tr>
-        <th />
-      </tr>
-    </thead>
     <tbody>
       {props.userJobs.filter(job => job.status <= props.filter).map(job =>
         (<tr key={job.id}>
@@ -15,9 +11,9 @@ const JobTable = props => (
           <td width={50}>
             <span>
               <button
-                className="mui-btn mui-btn--fab mui-btn--danger mui-btn--small"
                 onClick={() => props.handleAddJobToQueue(job)}
-              >+
+              >
+                <MDAdd size={25} />
               </button>
             </span>
           </td>

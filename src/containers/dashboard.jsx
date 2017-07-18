@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import MDDelete from 'react-icons/md/delete';
+import MDAdd from 'react-icons/md/add';
 import JobStepper from '../components/shared/jobStepper/jobStepper';
 import JobTable from '../components/dashboard/jobTable';
 import { updateJobStatusAPI, deleteJobAPI, fetchUserJobs, setSortFilter } from '../actions/actions';
 import getSortedJobs from '../selectors/jobs';
+
 import '../styles/css/dashboard.css';
 
 
@@ -56,7 +59,9 @@ class Dashboard extends Component {
         {(this.state.filterValue === 'all' || this.state.filterValue === 'saved') &&
         (<div>
           <h3>Saved Jobs</h3>
-          <JobTable userJobs={this.props.userJobs} handleAddJobToQueue={this.props.addJobToQueue} filter={-1}/>
+          <JobTable userJobs={this.props.userJobs} 
+            handleAddJobToQueue={this.props.addJobToQueue} filter={-1}
+          />
         </div>
         )}
 
@@ -77,10 +82,9 @@ class Dashboard extends Component {
               {this.props.userJobs.filter(job => job.status >= 0 && job.status < 4).map(job =>
                 (<tr key={job.id}>
                   <td width={50}>
-                    <button
-                      className="mui-btn mui-btn--fab mui-btn--accent mui-btn--small"
-                      onClick={() => this.props.deleteJob(job)}
-                    >+</button>
+                    <button onClick={() => this.props.deleteJob(job)}> 
+                      <MDDelete size={25} />
+                    </button>
                   </td>
                   <td>
                     <Link to={`/jobs/${job.id}`}>{job.position}</Link>

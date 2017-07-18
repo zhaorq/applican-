@@ -5,36 +5,22 @@ import MDDelete from 'react-icons/md/delete';
 import MDAdd from 'react-icons/md/add';
 import JobStepper from '../components/shared/jobStepper/jobStepper';
 import JobTable from '../components/dashboard/jobTable';
+import AddContact from '../components/jobInProgress/AddContact';
 import { updateJobStatusAPI, deleteJobAPI, fetchUserJobs, setSortFilter, addContactApi } from '../actions/actions';
 import getSortedJobs from '../selectors/jobs';
+import '../../public/assets/css/dashboard.css';
 
 class Dashboard extends Component {
   constructor(props) {
     super(props);
-    this.state = ({ filterValue: 'all', name: 'name', position: 'position', Email: 'email', FollowUp: new Date() });
+    this.state = ({ filterValue: 'all' });
     this.handleFilterChange = this.handleFilterChange.bind(this);
-    this.handleNameChange = this.handleNameChange.bind(this);
-    this.handlePositionChange = this.handlePositionChange.bind(this);
-    this.handleEmailChange = this.handleEmailChange.bind(this);
-    this.handleFollowUpChange = this.handleFollowUpChange.bind(this);
   }
   componentDidMount() {
     this.props.fetchJobs();
   }
   handleFilterChange(evt) {
     this.setState({ filterValue: evt.target.value });
-  }
-  handleNameChange(evt) {
-    this.setState({ name: evt.target.value });
-  }
-  handlePositionChange(evt) {
-    this.setState({ position: evt.target.value });
-  }
-  handleEmailChange(evt) {
-    this.setState({ Email: evt.target.value });
-  }
-  handleFollowUpChange(evt) {
-    this.setState({ FollowUp: evt.target.value });
   }
 
   render() {
@@ -103,17 +89,7 @@ class Dashboard extends Component {
                     </button>
                   </td>
                   <td width={50}>
-                    <form onSubmit={(e) => {
-                      e.preventDefault();
-                      this.props.addContact(this.state.name, this.state.position, this.state.Email, this.state.FollowUp, job.id);
-                    }}
-                    >
-                      <input type="text" name="name" value={this.state.name} onChange={this.handleNameChange} />
-                      <input type="text" name="position" value={this.state.position} onChange={this.handlePositionChange} />
-                      <input type="text" name="Email" value={this.state.Email} onChange={this.handleEmailChange} />
-                      <input type="date" name="FollowUp" value={this.state.FollowUp} onChange={this.handleFollowUpChange} />
-                      <input type="submit" />
-                    </form>
+                    <AddContact jobId={job.id}/>
                   </td>
                   <td>
                     <Link to={`/jobs/${job.id}`}>{job.position}</Link>

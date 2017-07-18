@@ -8,8 +8,6 @@ import JobTable from '../components/dashboard/jobTable';
 import { updateJobStatusAPI, deleteJobAPI, fetchUserJobs, setSortFilter } from '../actions/actions';
 import getSortedJobs from '../selectors/jobs';
 
-import '../styles/css/dashboard.css';
-
 
 class Dashboard extends Component {
   constructor(props) {
@@ -59,8 +57,10 @@ class Dashboard extends Component {
         {(this.state.filterValue === 'all' || this.state.filterValue === 'saved') &&
         (<div>
           <h3>Saved Jobs</h3>
-          <JobTable userJobs={this.props.userJobs} 
-            handleAddJobToQueue={this.props.addJobToQueue} filter={-1}
+          <JobTable
+            userJobs={this.props.userJobs}
+            handleAddJobToQueue={this.props.addJobToQueue}
+            filter={-1}
           />
         </div>
         )}
@@ -82,7 +82,7 @@ class Dashboard extends Component {
               {this.props.userJobs.filter(job => job.status >= 0 && job.status < 4).map(job =>
                 (<tr key={job.id}>
                   <td width={50}>
-                    <button onClick={() => this.props.deleteJob(job)}> 
+                    <button onClick={() => this.props.deleteJob(job)}>
                       <MDDelete size={25} />
                     </button>
                   </td>

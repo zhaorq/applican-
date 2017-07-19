@@ -5,21 +5,38 @@ import MDDelete from 'react-icons/md/delete';
 import MDAdd from 'react-icons/md/add';
 import JobStepper from '../components/shared/jobStepper/jobStepper';
 import JobTable from '../components/dashboard/jobTable';
-import { updateJobStatusAPI, deleteJobAPI, fetchUserJobs, setSortFilter } from '../actions/actions';
+import AddContact from '../components/jobInProgress/AddContact';
+import { updateJobStatusAPI, deleteJobAPI, fetchUserJobs, setSortFilter, addContactApi } from '../actions/actions';
 import getSortedJobs from '../selectors/jobs';
-
+import '../styles/css/dashboard.css';
 
 class Dashboard extends Component {
   constructor(props) {
     super(props);
-    this.state = ({ filterValue: 'all' });
+    this.state = ({ filterValue: 'all', name: 'name', position: 'position', Email: 'email', FollowUp: new Date() });
     this.handleFilterChange = this.handleFilterChange.bind(this);
+    this.handleNameChange = this.handleNameChange.bind(this);
+    this.handlePositionChange = this.handlePositionChange.bind(this);
+    this.handleEmailChange = this.handleEmailChange.bind(this);
+    this.handleFollowUpChange = this.handleFollowUpChange.bind(this);
   }
   componentDidMount() {
     this.props.fetchJobs();
   }
   handleFilterChange(evt) {
     this.setState({ filterValue: evt.target.value });
+  }
+  handleNameChange(evt) {
+    this.setState({ name: evt.target.value });
+  }
+  handlePositionChange(evt) {
+    this.setState({ position: evt.target.value });
+  }
+  handleEmailChange(evt) {
+    this.setState({ Email: evt.target.value });
+  }
+  handleFollowUpChange(evt) {
+    this.setState({ FollowUp: evt.target.value });
   }
 
   render() {
@@ -72,6 +89,7 @@ class Dashboard extends Component {
             <thead>
               <tr>
                 <th>Remove</th>
+                <th>Add Contact</th>
                 <th>Job Title</th>
                 <th>Company</th>
                 <th>Date</th>
@@ -86,7 +104,10 @@ class Dashboard extends Component {
                       <MDDelete size={25} />
                     </button>
                   </td>
-                  <td>
+                  <td width={50}>
+                    <AddContact jobId={job.id}/>
+                  </td>
+                  <td>-
                     <Link to={`/jobs/${job.id}`}>{job.position}</Link>
                   </td>
                   <td>{job.company}</td>
@@ -128,6 +149,9 @@ const mapDispatchToProps = dispatch => ({
   },
   toggleSortFilter(evt) {
     dispatch(setSortFilter(evt.target.value));
+  },
+  addContact(name, position, Email, FollowUp, id) {
+    dispatch(addContactApi(name, position, Email, FollowUp, id));
   },
 });
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

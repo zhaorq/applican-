@@ -7,7 +7,6 @@ import JobTable from '../components/dashboard/jobTable';
 import AddContact from '../components/jobInProgress/AddContact';
 import { updateJobStatusAPI, deleteJobAPI, fetchUserJobs, setSortFilter, addContactApi } from '../actions/actions';
 import getSortedJobs from '../selectors/jobs';
-import '../styles/css/dashboard.css';
 
 class Dashboard extends Component {
   constructor(props) {

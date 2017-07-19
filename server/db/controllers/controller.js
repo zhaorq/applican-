@@ -98,11 +98,19 @@ exports.removeContact = (req, res) => {
 };
 
 exports.getContacts = (req, res) => {
-  Contacts.findAll()
-    .then(contacts => {
-      res.status(200).send(contacts);
-    })
-    .catch(err => {
-      res.status(400).send(err);
+  const userId = req.user.id;
+  savedJobs.findAll({ where: { user_id: userId } })
+    .then((jobs) => {
+      const myJobs = [];
+      jobs.forEach((el) => {
+        myJobs.push(el.dataValues.id);
+      });
+      Contacts.findAll({ where: { job_id: myJobs } })
+        .then((contacts) => {
+          res.status(200).send(contacts);
+        })
+        .catch((err) => {
+          res.status(400).send(err);
+        });
     });
 };

@@ -19,7 +19,7 @@ const Contacts = db.define('Contacts', {
 
 Contacts.belongsTo(SavedJobs, {
   as: 'Contacts',
-  foreignKey: 'savedJobs_id',
+  foreignKey: 'job_id',
   constraints: false,
 });
 

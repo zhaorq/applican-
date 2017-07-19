@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import MDDelete from 'react-icons/md/delete';
 import JobStepper from '../components/shared/jobStepper/jobStepper';
 import JobTable from '../components/dashboard/jobTable';
+import LineChart from '../components/dashboard/linechart';
 import { updateJobStatusAPI, deleteJobAPI, fetchUserJobs, setSortFilter } from '../actions/actions';
 import getSortedJobs from '../selectors/jobs';
 
@@ -25,20 +26,22 @@ class Dashboard extends Component {
     return (
       <div className="mui-container-fluid">
         <h2>Job Search Summary</h2>
-        <div className="mui-row">
-          <div className="mui-panel mui-col-md-2 dashboard-panel">
-            <div className="panel-heading"> Total Jobs </div>
-            <div className="panel-body"> {this.props.userJobs.length} </div>
+        <div className="panel-container">
+          <div>
+            <div className="mui-panel dashboard-panel">
+              <div className="panel-heading"> Total Jobs </div>
+              <div className="panel-body"> {this.props.userJobs.length} </div>
+            </div>
+            <div className="mui-panel dashboard-panel" >
+              <div className="panel-heading"> Jobs in Progress </div>
+              <div className="panel-body"> {this.props.userJobs.filter(job => (job.status !== -1 && job.status !== 4)).length}</div>
+            </div>
           </div>
-          <div className="mui-panel mui-col-md-2 dashboard-panel" >
-            <div className="panel-heading"> Jobs in Progress </div>
-            <div className="panel-body"> {this.props.userJobs.filter(job => (job.status !== 0 && job.status !== 5)).length}</div>
-          </div>
-          <div className="mui-panel mui-col-md-8">
-            Chart
+          <div className="mui-panel dashboard-panel">
+            <LineChart jobs={this.props.userJobs} />
           </div>
         </div>
-        <div className="filterBox">
+        <span className="filterBox">
           <span className="filter-label">Show </span>
           <select value={this.state.filterValue} onChange={this.handleFilterChange}>
             <option value="all"> All Jobs</option>
@@ -46,15 +49,15 @@ class Dashboard extends Component {
             <option value="progress">Jobs in Progress</option>
             <option value="complete">Completed Jobs</option>
           </select>
-        </div>
-        <div className="filterBox">
+        </span>
+        <span className="filterBox">
           <span className="filter-label">SORT </span>
           <select onChange={this.props.toggleSortFilter}>
             <option value="DEFAULT"> Default</option>
             <option value="BY_PROGRESS"> By Progress</option>
             <option value="BY_DATE"> By Progress</option>
           </select>
-        </div>
+        </span>
         {(this.state.filterValue === 'all' || this.state.filterValue === 'saved') &&
         (<div>
           <h3>Saved Jobs</h3>

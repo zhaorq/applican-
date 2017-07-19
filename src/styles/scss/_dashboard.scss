@@ -6,10 +6,20 @@
   padding-right: 5px;
   font-weight: bold;
 };
+
 .dashboard-panel {
   text-align: center;
+  margin: 1em;
 .panel-body{
   font-weight:bolder;
   font-size: 1.5em;
   }
+}
+
+.panel-container {
+  display: flex;
+  align-content: flex-start;
+  align-items: center;
+  padding-left: 2em;
+  padding-top: 1.5em;
 }

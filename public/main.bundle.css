@@ -24793,9 +24793,17 @@ body p {
   font-weight: bold; }
 
 .dashboard-panel {
-  text-align: center; }
+  text-align: center;
+  margin: 1em; }
   .dashboard-panel .panel-body {
     font-weight: bolder;
     font-size: 1.5em; }
+
+.panel-container {
+  display: flex;
+  align-content: flex-start;
+  align-items: center;
+  padding-left: 2em;
+  padding-top: 1.5em; }
 
 /*# sourceMappingURL=main.bundle.css.map*/

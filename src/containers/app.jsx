@@ -11,8 +11,7 @@ import Dashboard from './dashboard';
 import JobInProgress from './jobinprogress';
 import store from '../store/store';
 import ContactInfo from '../components/jobInProgress/ContactInfo';
-
-
+import '../styles/css/mui.css';
 
 const App = () => (
   <Provider store={store}>

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import MDDelete from 'react-icons/md/delete';
-import MDAdd from 'react-icons/md/add';
 import JobStepper from '../components/shared/jobStepper/jobStepper';
 import JobTable from '../components/dashboard/jobTable';
 import AddContact from '../components/jobInProgress/AddContact';
@@ -44,11 +43,13 @@ class Dashboard extends Component {
       <div className="mui-container-fluid">
         <h2>Job Search Summary</h2>
         <div className="mui-row">
-          <div className="mui-panel mui-col-md-2">
-            Total Job Applications
+          <div className="mui-panel mui-col-md-2 dashboard-panel">
+            <div className="panel-heading"> Total Jobs </div>
+            <div className="panel-body"> {this.props.userJobs.length} </div>
           </div>
-          <div className="mui-panel mui-col-md-2" >
-            Total Job Applications
+          <div className="mui-panel mui-col-md-2 dashboard-panel" >
+            <div className="panel-heading"> Jobs in Progress </div>
+            <div className="panel-body"> {this.props.userJobs.filter(job => (job.status !== 0 && job.status !== 5)).length}</div>
           </div>
           <div className="mui-panel mui-col-md-8">
             Chart

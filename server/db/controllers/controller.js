@@ -118,13 +118,13 @@ exports.getContacts = (req, res) => {
 
 
 exports.addNotes = (req, res) => {
-  const Start = req.body.Start;
-  const Application = req.body.Application;
-  const Submit = req.body.Submit;
-  const Interview = req.body.Interview;
-  const Offer = req.body.Offer;
-  const user_id = req.session.passport.user;
-  const job_id = req.body.job_id;
+  const Start = req.body.Start || null;
+  const Application = req.body.Application || null;
+  const Submit = req.body.Submit || null;
+  const Interview = req.body.Interview || null;
+  const Offer = req.body.Offer || null;
+  const user_id = req.session.passport.user || null;
+  const job_id = req.body.job_id || null;
 
   let Column = '';
   let Value = '';
@@ -164,7 +164,6 @@ exports.addNotes = (req, res) => {
 exports.retrieveNotes = (req, res) => {
   Notes.findAll()
     .then((notes) => {
-      console.log('these are notes from retrieveNotes: ', notes); 
       res.status(200).send(notes);
     })
     .catch((err) => {

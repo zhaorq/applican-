@@ -33,5 +33,7 @@ router.delete('/jobs/:id', isLoggedIn, controllers.deleteJob);
 router.post('/contacts', controllers.addContact);
 router.get('/contacts', controllers.getContacts);
 router.delete('/contacts/:id', controllers.removeContact);
+router.post('/notes/', controllers.addNotes);
+router.get('/findnotes/', controllers.retrieveNotes);
 
 module.exports = router;

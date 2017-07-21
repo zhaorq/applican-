@@ -11,8 +11,6 @@ class Notes extends Component {
     this.state = {
       activeTab: '',
       notes: '',
-      retrieve: 'TEST',
-      show: false,
     };
     this.handleChange = this.handleChange.bind(this);
     this.saveNotes = this.saveNotes.bind(this);
@@ -21,7 +19,6 @@ class Notes extends Component {
   componentDidMount() {
     axios.get('/api/findnotes')
       .then((res) => {
-        console.log('this is res: ', res.data);
         this.props.setUserNotes(res.data);
       })
       .catch(err => console.log(err));
@@ -35,8 +32,8 @@ class Notes extends Component {
 
   makeTab(active) {
     this.setState({ activeTab: active });
-    this.setState({ notes: this.props.allnotes.data.filter(note => note.job_id === this.props.id)[0][active] });
-    this.setState({ show: true });
+    let retrieve = this.props.allnotes.data.filter(note => note.job_id === this.props.id)[0][active]; 
+    this.setState({ notes: retrieve !==null?  retrieve: ': '});
   }
 
   saveNotes(event) {
@@ -47,14 +44,14 @@ class Notes extends Component {
       job_id: this.props.id,
     })
       .then((data) => {
-        console.log('this is data after saved: ', data);
+        console.log('data saved: ', data);
       });
   }
 
 
   render() {
-    console.log('this is allNotes: ', this.props.allnotes);
     return (
+
       <div>
         <a href="#" onClick={this.makeTab.bind(this, 'Start')}>Start </a>
         <a href="#" onClick={this.makeTab.bind(this, 'Application')}>Application </a>
@@ -63,7 +60,7 @@ class Notes extends Component {
         <a href="#" onClick={this.makeTab.bind(this, 'Offer')}>Offer </a>
         <br />
         <h2>{this.state.activeTab}</h2>
-        {this.state.show ?
+        {this.state.activeTab!=='' ?
           <div id="results" className="search-results">
             <form onSubmit={this.saveNotes}>
               <input type="text" value={this.state.notes} onChange={e => this.handleChange(e)} style={{ height: 100, width: 600 }} />

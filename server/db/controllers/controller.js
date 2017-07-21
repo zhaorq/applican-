@@ -164,7 +164,6 @@ exports.addNotes = (req, res) => {
 exports.retrieveNotes = (req, res) => {
   Notes.findAll()
     .then((notes) => {
-      console.log('these are notes from retrieveNotes: ', notes); 
       res.status(200).send(notes);
     })
     .catch((err) => {

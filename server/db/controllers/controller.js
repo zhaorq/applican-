@@ -113,12 +113,6 @@ exports.getContacts = (req, res) => {
         .catch((err) => {
           res.status(400).send(err);
         });
-  Contacts.findAll()
-    .then((contacts) => {
-      res.status(200).send(contacts);
-    })
-    .catch((err) => {
-      res.status(400).send(err);
     });
 };
 

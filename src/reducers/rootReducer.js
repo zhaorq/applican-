@@ -84,7 +84,6 @@ const addContact = (state = {}, action) => {
 
 const allNotes = (state = {}, action) => {
   if (action.type === SET_USER_NOTES) {
-    console.log('this is action payload: ', action.payload);
     return Object.assign({}, state, { data: action.payload });
   }
   return state;

@@ -28,7 +28,6 @@ class Notes extends Component {
   }
 
   handleChange(e) {
-    console.log('right here, christine', e.target.value);
     this.setState({
       notes: e.target.value,
     });

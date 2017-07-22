@@ -4,6 +4,7 @@ import { Header, Icon } from 'semantic-ui-react';
 import { updateJobStatusAPI, deleteJobAPI } from '../actions/actions';
 import JobStepper from '../components/shared/jobStepper/jobStepper';
 import Contacts from '../components/jobInProgress/contacts';
+import SavedResume from '../components/jobInProgress/savedResume';
 
 const JobInProgress = props => (
   <container>
@@ -19,6 +20,7 @@ const JobInProgress = props => (
     <div>
       <JobStepper job={props.job} handleProgressClick={props.toggleJobStatus} />
     </div>
+    <SavedResume jobId={props.job.id} hasCoverLetter={true} />
     <div>
       <h3>Contacts</h3>
       <Contacts />

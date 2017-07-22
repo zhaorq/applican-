@@ -2,12 +2,14 @@ const express = require('express');
 const path = require('path');
 const Session = require('express-session');
 const bodyParser = require('body-parser');
-
-const app = express();
+const fileUpload = require('express-fileupload');
 const apiRouter = require('./router/apiRouter');
 const authRouter = require('./router/authRouter');
+const s3Router = require('./router/s3Router');
 const cookieParser = require('cookie-parser')();
 const passport = require('passport');
+
+const app = express();
 
 
 app.use(express.static(path.join(__dirname, '../public/')));
@@ -21,6 +23,7 @@ require('./router/passport.js')(passport);
 app.use(Session({ secret: 'hippos', resave: true, saveUninitialized: true }));
 app.use(cookieParser);
 app.use(bodyParser.json());
+app.use(fileUpload());
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -28,6 +31,7 @@ app.use(passport.session());
 // ROUTING
 app.use('/api', apiRouter);
 app.use('/auth', authRouter);
+app.use('/coverletter', s3Router);
 
 //   app.get('/test', isLoggedIn, function(req, res) {
 //     res.send('blah blah');

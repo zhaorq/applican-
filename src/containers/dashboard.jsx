@@ -37,7 +37,6 @@ class Dashboard extends Component {
   handleFollowUpChange(evt) {
     this.setState({ FollowUp: evt.target.value });
   }
-
   render() {
     return (
       <div className="mui-container-fluid">
@@ -108,7 +107,7 @@ class Dashboard extends Component {
                     </button>
                   </td>
                   <td width={50}>
-                    <AddContact jobId={job.id}/>
+                    <AddContact jobId={job.id} />
                   </td>
                   <td>-
                     <Link to={`/jobs/${job.id}`}>{job.position}</Link>

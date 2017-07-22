@@ -8,12 +8,12 @@ export default class Contacts extends React.Component {
   render() {
     return (
       <div>
-        <ul>
-          <li>Name: {this.props.name}</li>
-          <li>Position: {this.props.position}</li>
-          <li>Email: {this.props.Email}</li>
-          <li>Follow Up:{this.props.FollowUp}</li>
-        </ul>
+        <tr>
+          <td>Name: {this.props.name}</td>
+          <td>Position: {this.props.position}</td>
+          <td>Email: {this.props.Email}</td>
+          <td>Follow Up:{this.props.FollowUp}</td>
+        </tr>
       </div>
     );
   }

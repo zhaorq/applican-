@@ -1,8 +1,8 @@
-// const User = require('../models/User.js');
-const User = require('../models/savedJobs.js');
+const User = require('../models/User.js');
 const savedJobs = require('../models/savedJobs.js');
 const Contacts = require('../models/contacts.js');
 const Notes = require('../models/notes.js');
+const Join = require('../models/join');
 
 exports.getUserJobs = (req, res) => {
   const userId = req.user.id;
@@ -100,14 +100,44 @@ exports.removeContact = (req, res) => {
 
 exports.getContacts = (req, res) => {
   const userId = req.user.id;
+
+  // Contacts.findAll({
+  //   where: { user_id: userId },
+  //   includes: [{
+  //     model: Join,
+  //     through: {
+  //       attributes: ['company'],
+  //     },
+  //   }],
+  // })
+  //   .then((data) => {
+  //     console.log('data is', data);
+  //   });
+
   savedJobs.findAll({ where: { user_id: userId } })
     .then((jobs) => {
       const myJobs = [];
+      const companyName = [];
       jobs.forEach((el) => {
+        companyName.push([el.dataValues.id, el.dataValues.company]);
         myJobs.push(el.dataValues.id);
       });
-      Contacts.findAll({ where: { job_id: myJobs } })
+      // Contacts.findAll({ where: { job_id: myJobs } })
+
+      Contacts.findAll({
+        where: { job_id: myJobs },
+        includes: [savedJobs],
+      })
+
+      // Contacts.findAll({ includes: [{
+      //   model: savedJobs,
+      //   through: {
+      //     attributes: ['company'],
+      //     where: { SavedJobsId: myJobs },
+      //   },
+      // }] })
         .then((contacts) => {
+          console.log('contacts is', contacts);
           res.status(200).send(contacts);
         })
         .catch((err) => {

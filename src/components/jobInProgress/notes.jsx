@@ -12,6 +12,7 @@ class Notes extends Component {
       activeTab: '',
       notes: '',
       show: false,
+      refresh: false,
     };
     this.handleChange = this.handleChange.bind(this);
     this.saveNotes = this.saveNotes.bind(this);
@@ -34,8 +35,13 @@ class Notes extends Component {
   makeTab(active) {
     this.setState({ activeTab: active });
     this.setState({ show: true });
-    let retrieve = this.props.allnotes.data.filter(note => note.job_id === this.props.id)[0][active]; 
-    this.setState({ notes: retrieve !== null ?  retrieve: ': '});
+    const data = this.props.allnotes.data.filter(note => note.job_id === this.props.id);
+    if (data.length === 0) {
+      this.setState({ notes: ': ' });
+    } else {
+      const retrieve = data[0][active];
+      this.setState({ notes: retrieve !== null ? retrieve : ': ' });
+    }
   }
 
   saveNotes(event) {
@@ -47,12 +53,17 @@ class Notes extends Component {
     })
       .then((data) => {
         console.log('data saved: ', data);
+
+        axios.get('/api/findnotes')
+          .then((res) => {
+            console.log('this is refreshed: ', res);
+            this.props.setUserNotes(res.data);
+          })
+          .catch(err => console.log(err));
       });
   }
 
-
   render() {
-    
     return (
       <div>
         <a href="#" onClick={this.makeTab.bind(this, 'Start')}>Start </a>
@@ -66,7 +77,7 @@ class Notes extends Component {
           <div id="results" className="search-results">
             <form onSubmit={this.saveNotes}>
               <input type="text" value={this.state.notes} onChange={e => this.handleChange(e)} style={{ height: 100, width: 600 }} />
-              <input type="submit" value="Save" />
+              <button type="submit" value="Save"> Save </button>
             </form>
           </div> : null
         }

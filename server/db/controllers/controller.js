@@ -135,7 +135,7 @@ exports.addNotes = (req, res) => {
     Interview: req.body.Interview,
     Offer: req.body.Offer,
   };
-  for (var key in List) {
+  for (const key in List) {
     if (List[key] !== undefined) {
       Column = key;
       Value = List[key];
@@ -144,11 +144,16 @@ exports.addNotes = (req, res) => {
   Notes.findAll({ where: { user_id, job_id } })
     .then((data) => {
       if (data.length !== 0) {
-        Notes.update({ [Column]: Value }, { where: { user_id, job_id } });
+        Notes.update({ [Column]: Value }, { where: { user_id, job_id } })
+          .then(() => {
+            res.status(200).send();
+          })
+          .catch((err) => {
+            res.status(400).send(err);
+          });
       } else {
         Notes.create({ Start, Application, Submit, Interview, Offer, user_id, job_id })
           .then((notes) => {
-            console.log('created notes: ', notes.dataValues);
           })
           .then(() => {
             res.status(200).send();
@@ -162,7 +167,7 @@ exports.addNotes = (req, res) => {
 
 
 exports.retrieveNotes = (req, res) => {
-  Notes.findAll()
+  Notes.findAll({})
     .then((notes) => {
       res.status(200).send(notes);
     })

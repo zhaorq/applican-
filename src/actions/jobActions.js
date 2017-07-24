@@ -1,5 +1,9 @@
 import axios from 'axios';
+<<<<<<< HEAD
 import { SET_SEARCH_TERM, SEE_JOB_DETAILS, SET_JOB_DESC, ADD_CONTACT, SET_USER_NOTES } from './actionTypes';
+=======
+import { SET_SEARCH_TERM, SEE_JOB_DETAILS, SET_JOB_DESC, ADD_CONTACT } from './actionTypes';
+>>>>>>> s3
 
 export function setSearchTerm(searchTerm) {
   return { type: SET_SEARCH_TERM, payload: searchTerm };

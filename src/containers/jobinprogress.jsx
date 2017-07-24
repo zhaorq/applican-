@@ -5,6 +5,7 @@ import { updateJobStatusAPI, deleteJobAPI, fetchUserNotes } from '../actions/act
 import JobStepper from '../components/shared/jobStepper/jobStepper';
 import Contacts from '../components/jobInProgress/contacts';
 import Notes from '../components/jobInProgress/notes';
+import SavedCoverLetter from '../components/jobInProgress/savedCoverLetter';
 
 const JobInProgress = props => (
   <container>
@@ -20,7 +21,7 @@ const JobInProgress = props => (
     <div>
       <JobStepper job={props.job} handleProgressClick={props.toggleJobStatus} />
     </div>
-    <br />
+    <SavedCoverLetter jobId={props.job.id} coverLetterKey={props.job.cover_letter_key} />
     <div>
       <Notes id={props.job.id} />
     </div>

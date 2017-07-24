@@ -18,12 +18,12 @@ s3Router.post('/:jobId', (req, res) => {
   const params = {
     Bucket: `hashhippos/resumes/${req.user.id}`,
     Key: jobId,
+    ContentType: req.files.file.mimetype,
     Body: req.files.file.data,
   };
   const putObjectPromise = s3.upload(params).promise()
     .then(data => savedJobs.findById(jobId))
     .then((job) => {
-      console.log(job);
       if (job) {
         return job.update({ cover_letter_key: params.Key});
       }
@@ -31,6 +31,21 @@ s3Router.post('/:jobId', (req, res) => {
     })
     .then(() => res.status(200).send())
     .catch(err => res.status(500).send(err));
+});
+
+s3Router.get('/:jobId', (req, res) => {
+  const { jobId } = req.params;
+  const params = {
+    Bucket: `hashhippos/resumes/${req.user.id}`,
+    Key: jobId,
+  };
+  s3.getSignedUrl('getObject', params, (err, url) => {
+    if(err) {
+      console.log(err);
+      res.status(500).send('resource retrieval failed');
+    }
+    res.redirect(url);
+  });
 });
 
 module.exports = s3Router;

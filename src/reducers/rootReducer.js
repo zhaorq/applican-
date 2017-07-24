@@ -1,23 +1,6 @@
 import { combineReducers } from 'redux';
 import { SET_SEARCH_TERM, UPDATE_JOB_LISTINGS, TOGGLE_JOB_LISTING_STATUS, DELETE_JOB, SEE_JOB_DETAILS, SET_JOB_DESC, SET_USER_AUTH, SET_USER_JOBS, SET_SORT_FILTER, ADD_CONTACT } from '../actions/actionTypes';
 
-const mockUserJobsData = [
-  { id: 1,
-    company: 'ZEDVentures Incorporated',
-    date: '2017-07-10',
-    detailUrl: 'http://www.dice.com/job/result/10342830/066933?src=19',
-    jobTitle: 'Open Text Consultant',
-    status: -1,
-  },
-  { id: 2,
-    company: 'ZEDVentures Incorporated',
-    date: '2017-07-10',
-    detailUrl: 'http://www.dice.com/job/result/10342830/066933?src=19',
-    jobTitle: 'Open Text Consultant',
-    status: 4,
-  },
-];
-
 const user = (state = false, action) => {
   if (action.type === SET_USER_AUTH) {
     return action.payload;

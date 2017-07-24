@@ -23,7 +23,7 @@ require('./router/passport.js')(passport);
 app.use(Session({ secret: 'hippos', resave: true, saveUninitialized: true }));
 app.use(cookieParser);
 app.use(bodyParser.json());
-app.use(fileUpload());
+app.use(fileUpload({ fileSize: 5 * 1024 * 1024 }));
 app.use(passport.initialize());
 app.use(passport.session());
 

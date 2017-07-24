@@ -34,7 +34,7 @@ export function setUserJobs(jobs) {
 
 export function fetchUserJobs() {
   return (dispatch) => {
-    axios.get('api/user/')
+    axios.get('/api/user/')
       .then((res) => {
         return dispatch(setUserJobs(res.data));
       })

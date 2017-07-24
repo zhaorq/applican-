@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { setUserNotes } from '../../actions/actions';
 import axios from 'axios';
 import Button from 'muicss/lib/react/button';
+import Container from 'muicss/lib/react/container';
 
 
 class Notes extends Component {
@@ -68,21 +69,24 @@ class Notes extends Component {
 
   render() {
     return (
-      <div>
-        {this.state.tabs.map(tab => (
-          <Button disabled={this.state.disable} variant="raised" color={tab[1]} className="mui--text-menu" onClick={this.makeTab.bind(this, tab[0])}>{tab[0].toUpperCase()} </Button>
-        ))}
-        <br />
-        {this.state.show ?
-          <div id="results" className="search-results">
-            <form onSubmit={this.saveNotes}>
-              <input type="text" value={this.state.notes} onChange={e => this.handleChange(e)} style={{ height: 100, width: 600 }} />
-              <br />
-              <Button variant="raised" color="primary">SAVE</Button>
-            </form>
-          </div> : null
-        }
-      </div>
+
+       <Container>
+         <div>
+          {this.state.tabs.map(tab => (
+            <Button disabled={this.state.disable} variant="raised" color={tab[1]} className="mui--text-menu" onClick={this.makeTab.bind(this, tab[0])}>{tab[0].toUpperCase()} </Button>
+          ))}
+          <br />
+          {this.state.show ?
+            <div id="results" className="search-results">
+              <form onSubmit={this.saveNotes}>
+                <input type="text" value={this.state.notes} onChange={e => this.handleChange(e)} style={{ height: 100, width: 600 }} />
+                <br />
+                <Button variant="raised" color="primary">SAVE</Button>
+              </form>
+            </div> : null
+          }
+        </div>
+      </Container>   
     );
   }
 }

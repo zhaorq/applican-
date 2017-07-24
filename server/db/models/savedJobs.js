@@ -34,8 +34,8 @@ const SavedJobs = db.define('SavedJobs', {
   closed_date: {
     type: Sequelize.DATE,
   },
-  notes: {
-    type: Sequelize.TEXT,
+  cover_letter_key: {
+    type: Sequelize.STRING,
   },
 });
 

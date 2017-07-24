@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setUserNotes } from '../../actions/actions';
 import axios from 'axios';
+import Button from 'muicss/lib/react/button';
+import Container from 'muicss/lib/react/container';
 
 
 class Notes extends Component {
@@ -12,7 +14,8 @@ class Notes extends Component {
       activeTab: '',
       notes: '',
       show: false,
-      refresh: false,
+      tabs: [['Start', 'primary'], ['Application', 'danger'], ['Submit', 'accent'], ['Interview', 'primary'], ['Offer', 'danger']],
+      disable: false,
     };
     this.handleChange = this.handleChange.bind(this);
     this.saveNotes = this.saveNotes.bind(this);
@@ -33,14 +36,15 @@ class Notes extends Component {
   }
 
   makeTab(active) {
+    this.setState({ disabled: true });
     this.setState({ activeTab: active });
     this.setState({ show: true });
     const data = this.props.allnotes.data.filter(note => note.job_id === this.props.id);
     if (data.length === 0) {
-      this.setState({ notes: ': ' });
+      this.setState({ notes: '' });
     } else {
       const retrieve = data[0][active];
-      this.setState({ notes: retrieve !== null ? retrieve : ': ' });
+      this.setState({ notes: retrieve !== null ? retrieve : '' });
     }
   }
 
@@ -62,23 +66,24 @@ class Notes extends Component {
 
   render() {
     return (
-      <div>
-        <a href="#" onClick={this.makeTab.bind(this, 'Start')}>Start </a>
-        <a href="#" onClick={this.makeTab.bind(this, 'Application')}>Application </a>
-        <a href="#" onClick={this.makeTab.bind(this, 'Submit')}>Submit </a>
-        <a href="#" onClick={this.makeTab.bind(this, 'Interview')}>Interview </a>
-        <a href="#" onClick={this.makeTab.bind(this, 'Offer')}>Offer </a>
-        <br />
-        <h2>{this.state.activeTab}</h2>
-        {this.state.show ?
-          <div id="results" className="search-results">
-            <form onSubmit={this.saveNotes}>
-              <input type="text" value={this.state.notes} onChange={e => this.handleChange(e)} style={{ height: 100, width: 600 }} />
-              <button type="submit" value="Save"> Save </button>
-            </form>
-          </div> : null
-        }
-      </div>
+
+       <Container>
+         <div>
+          {this.state.tabs.map(tab => (
+            <Button disabled={this.state.disable} variant="raised" color={tab[1]} className="mui--text-menu" onClick={this.makeTab.bind(this, tab[0])}>{tab[0].toUpperCase()} </Button>
+          ))}
+          <br />
+          {this.state.show ?
+            <div id="results" className="search-results">
+              <form onSubmit={this.saveNotes}>
+                <input type="text" value={this.state.notes} onChange={e => this.handleChange(e)} style={{ height: 100, width: 600 }} />
+                <br />
+                <Button variant="raised" color="primary">SAVE</Button>
+              </form>
+            </div> : null
+          }
+        </div>
+      </Container>   
     );
   }
 }

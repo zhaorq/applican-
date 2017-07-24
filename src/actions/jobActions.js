@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { SET_SEARCH_TERM, SEE_JOB_DETAILS, SET_JOB_DESC, ADD_CONTACT, SET_USER_NOTES } from './actionTypes';
 
 export function setSearchTerm(searchTerm) {

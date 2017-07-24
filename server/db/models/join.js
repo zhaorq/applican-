@@ -1,32 +1,15 @@
 const Sequelize = require('sequelize');
 const db = require('../db.js');
-const User = require('./User.js');
 const savedJobs = require('./savedJobs.js');
+const contacts = require('./contacts.js');
 
-const Join = db.define('Join', {
-  placeholder: Sequelize.STRING,
+const Join = db.define('join', {
+  status: Sequelize.STRING,
 });
 
-User.belongsTo(Join, {
-  as: 'User',
-  foreignKey: 'user_id',
-  constraints: false,
-});
+savedJobs.belongsToMany(contacts, { through: Join });
+contacts.belongsToMany(savedJobs, { through: Join });
 
-Join.hasMany(User, {
-  foreignKey: 'join_id',
-  constraints: false,
-});
-
-savedJobs.belongsTo(Join, {
-  as: 'Job',
-  foreignKey: 'savedJobs_id',
-  constraints: false,
-});
-
-Join.hasMany(savedJobs, {
-  foreignKey: 'savedJobs_id',
-  constraints: false,
-});
+Join.sync();
 
 module.exports = Join;

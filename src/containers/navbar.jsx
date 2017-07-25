@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import Appbar from 'muicss/lib/react/appbar';
 import '../styles/css/mui.css';
 import { fetchUserAuthStatus } from '../actions/actions';
 
@@ -10,7 +11,7 @@ class NavBar extends Component {
   }
   render() {
     return (
-      <div className="navbar">
+      <Appbar>
         <table width="100%">
           <tbody>
             <tr className="mui--appbar-height">
@@ -31,7 +32,7 @@ class NavBar extends Component {
             </tr>
           </tbody>
         </table>
-      </div>
+      </Appbar>
     );
   }
 }

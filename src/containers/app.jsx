@@ -15,7 +15,7 @@ import '../styles/css/mui.css';
 
 const App = () => (
   <Provider store={store}>
-    <div className="app">
+    <div>
       <NavBar />
       <Route exact path="/" component={Landing} />
       <Route exact path="/signup" component={Signup} />

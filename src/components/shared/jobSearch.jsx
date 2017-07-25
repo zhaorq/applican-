@@ -49,8 +49,6 @@ class JobSearch extends Component {
   render() {
     return (
       <div className="mui-container mui--text-center">
-        <h1>{this.state.jobType}</h1>
-        <h2>{this.state.location}</h2>
         <form className="search" onSubmit={this.handleSubmit}>
           <input className="input1"
             type="text"

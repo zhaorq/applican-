@@ -38,6 +38,11 @@ class Dashboard extends Component {
     this.setState({ FollowUp: evt.target.value });
   }
   render() {
+    if (!Array.isArray(this.props.userJobs)) {
+      return (
+      <h1> Arse</h1>
+      )
+    }
     return (
       <div className="mui-container-fluid">
         <h2>Job Search Summary</h2>

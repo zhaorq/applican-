@@ -73,13 +73,11 @@ exports.addContact = (req, res) => {
   const position = req.body.position || null;
   const Email = req.body.Email || null;
   const FollowUp = req.body.FollowUp || null;
-  const job_id = req.body.id || null;
+  const job_id = req.body.jobId || null;
   Contacts.create({ name, position, Email, FollowUp, job_id })
     .then((contact) => {
       console.log('created contact:', contact);
-    })
-    .then(() => {
-      res.status(200).send();
+      res.status(200).send(contact.dataValues);
     })
     .catch((err) => {
       res.status(400).send(err);

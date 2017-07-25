@@ -18,7 +18,6 @@ const App = () => (
       <NavBar />
       <Route exact path="/" component={Landing} />
       <Route exact path="/search" component={Search} />
-      <Route exact path="/login" component={Login} />
       <PrivateRoute exact path="/dashboard" component={Dashboard} />
       <PrivateRoute exact path="/contacts" component={ContactInfo} />
       <PrivateRoute path="/jobs/:id" component={JobInProgress} />

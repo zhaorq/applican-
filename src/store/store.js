@@ -7,8 +7,12 @@ const persistedState = localStorage.getItem('applican_store') ? JSON.parse(local
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
   rootReducer,
+  persistedState,
   composeEnhancers(applyMiddleware(reduxThunk))
 );
 /* eslint-enable */
 
+store.subscribe(() => {
+  localStorage.setItem('applican_store', JSON.stringify(store.getState()));
+});
 export default store;

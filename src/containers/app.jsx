@@ -21,7 +21,6 @@ const App = () => (
       <PrivateRoute exact path="/dashboard" component={Dashboard} />
       <PrivateRoute exact path="/contacts" component={ContactInfo} />
       <PrivateRoute path="/jobs/:id" component={JobInProgress} />
-
     </div>
   </Provider >
 );

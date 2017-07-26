@@ -15,24 +15,24 @@ export class ContactInfo extends React.Component {
   render() {
     return (
       <div>
-        <table style={{ border: '1px solid' }} >
-          <thead style={{ border: '1px solid' }}>
-            <tr>
-              <th style={{ border: '1px solid' }}>Name</th>
-              <th style={{ border: '1px solid' }}>Position</th>
-              <th style={{ border: '1px solid' }}>Email</th>
-              <th style={{ border: '1px solid' }}>FollowUp Date</th>
-              <th style={{ border: '1px solid' }}>Remove</th>
+        <table className="contactTable" style={{ border: '1px solid' }} >
+          <thead className="contactHead" style={{ border: '1px solid' }}>
+            <tr >
+              <th>Name</th>
+              <th>Position</th>
+              <th>Email</th>
+              <th>FollowUp Date</th>
+              <th>Remove</th>
             </tr>
           </thead>
           <tbody style={{ border: '1px solid' }}>
             { Array.isArray(this.props.contacts) && this.props.contacts.map((el) => {
               return (
-                <tr key={el.id} style={{ border: '1px solid' }}>
-                  <td style={{ border: '1px solid' }}>{el.name}</td>
-                  <td style={{ border: '1px solid' }}>{el.position}</td>
-                  <td style={{ border: '1px solid' }}>{el.Email}</td>
-                  <td style={{ border: '1px solid' }}>{el.FollowUp.toString()}</td>
+                <tr className="contactRow" key={el.id} style={{ border: '1px solid' }}>
+                  <td className="contactRow">{el.name}</td>
+                  <td className="contactRow">{el.position}</td>
+                  <td className="contactRow">{el.Email}</td>
+                  <td className="contactRow">{el.FollowUp.toString()}</td>
                   <td>
                     <button onClick={() => this.props.removeContactApi(el.id)}>
                       <MDDelete size={15} />

@@ -34,11 +34,11 @@ class AddContact extends React.Component {
           this.props.addContact(this.state.name, this.state.position, this.state.Email, this.state.FollowUp, this.props.jobId);
         }}
         >
-          <input type="text" name="name" placeholder={this.state.name} onChange={this.handleNameChange} />
-          <input type="text" name="position" placeholder={this.state.position} onChange={this.handlePositionChange} />
-          <input type="text" name="Email" placeholder={this.state.Email} onChange={this.handleEmailChange} />
-          <input type="date" name="FollowUp" placeholder={this.state.FollowUp} onChange={this.handleFollowUpChange} />
-          <input type="submit" />
+          <input type="text" name="name" placeholder={this.state.name} onChange={this.handleNameChange} className="aContact" />
+          <input type="text" name="position" placeholder={this.state.position} onChange={this.handlePositionChange} className="aContact" />
+          <input type="text" name="Email" placeholder={this.state.Email} onChange={this.handleEmailChange} className="aContact" />
+          <input type="date" name="FollowUp" placeholder={this.state.FollowUp} onChange={this.handleFollowUpChange} className="aContact" />
+          <input type="submit" className="aSubmit" />
         </form>
       </div>
     );

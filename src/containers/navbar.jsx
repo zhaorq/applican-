@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {resolve} from 'path';
+import { resolve } from 'path';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import '../styles/css/mui.css';
@@ -20,9 +20,9 @@ class NavBar extends Component {
               </td>
               <td style={{ textAlign: 'right' }}>
                 {(!this.props.isUserAuth) ?
-                    <a href="/auth/google" className='logo'>
-                    <img src="img/google_signin.png"/>
-                    </a>
+                  <a href="/auth/google" className="logo">
+                    <img src="img/google_signin.png" alt="Google Login" />
+                  </a>
                   : <ul className="mui-list--inline mui--text-body2">
                     <li><Link to={'/dashboard'} className="mui--text-light" id="dashboard">Dashboard </Link></li>
                     <li><a href="/auth/logout" className="mui--text-light" id="logout">Logout</a></li>

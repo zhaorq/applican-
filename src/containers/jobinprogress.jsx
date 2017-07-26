@@ -21,13 +21,17 @@ const JobInProgress = props => (
     </div>
     <div>
       <JobStepper job={props.job} handleProgressClick={props.toggleJobStatus} />
-    </div>
-    <SavedCoverLetter jobId={props.job.id} coverLetterKey={props.job.cover_letter_key} />
+    </div><br />
+    <h3 className="title">Upload Cover Letter</h3>
+    <div className="coverletter">
+      <SavedCoverLetter jobId={props.job.id} coverLetterKey={props.job.cover_letter_key} />
+    </div><br />
     <div>
+    <h3 className="title">Notes</h3>
       <Notes id={props.job.id} />
     </div>
     <div>
-      <h3>Contacts</h3>
+      <h3 className="title">Contacts</h3>
       <table>
         <td width={50}>
           <AddContact jobId={props.job.id}/>

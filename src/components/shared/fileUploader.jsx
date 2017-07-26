@@ -35,8 +35,8 @@ class FileUploader extends Component {
     return (
       <div>
         <form onSubmit={this.handleResumeSubmit}>
-          <input type="file" onChange={this.handleFileChange} />
-          <input type="submit" />
+          <input className="choose" type="file" onChange={this.handleFileChange} />
+          <input className="submit" type="submit" />
         </form>
       </div>
     );

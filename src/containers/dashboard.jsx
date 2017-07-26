@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import MDDelete from 'react-icons/md/delete';
 import JobStepper from '../components/shared/jobStepper/jobStepper';
-import JobTable from '../components/dashboard/jobTable';
+import SavedJobsTable from '../components/dashboard/savedJobsTable';
 import LineChart from '../components/dashboard/linechart';
 import PieChart from '../components/dashboard/piechart';
 import { updateJobStatusAPI, deleteJobAPI, fetchUserJobs, setSortFilter } from '../actions/actions';
-import getSortedJobs from '../selectors/jobs';
+import { getSortedJobs } from '../selectors/jobs';
 import Dropdown from 'muicss/lib/react/dropdown';
 import DropdownItem from 'muicss/lib/react/dropdown-item';
 
@@ -65,11 +65,7 @@ class Dashboard extends Component {
         {(this.state.filterValue === 'all' || this.state.filterValue === 'saved') &&
         (<div><br />
           <h3>Saved Jobs</h3>
-          <JobTable
-            userJobs={this.props.userJobs}
-            handleAddJobToQueue={this.props.addJobToQueue}
-            filter={-1}
-          />
+          <SavedJobsTable statusFilterValue={-1} />
         </div>
         )}
 
@@ -79,7 +75,7 @@ class Dashboard extends Component {
           <table className="mui-table">
             <thead>
               <tr>
-                <th>Remove</th>
+                <th />
                 <th>Job Title</th>
                 <th>Company</th>
                 <th>Date</th>
@@ -91,7 +87,7 @@ class Dashboard extends Component {
                 (<tr key={job.id}>
                   <td width={50}>
                     <button onClick={() => this.props.deleteJob(job)}>
-                      <MDDelete size={25} />
+                      <MDDelete size={20} />
                     </button>
                   </td>
                   <td>-
@@ -111,7 +107,7 @@ class Dashboard extends Component {
         {(this.state.filterValue === 'all' || this.state.filterValue === 'complete') &&
         (<div>
           <h3>Completed Jobs</h3>
-          <JobTable userJobs={this.props.userJobs} filter={4} />
+          <SavedJobsTable statusFilterValue={4} />
         </div>
         )}
       </div>

@@ -18,7 +18,6 @@ class JobListEntry extends Component {
   }
 
   selectJobHandle(e) {
-    e.preventDefault();
     this.props.selectJob(this.props.job);
     axios({
       method: 'POST',
@@ -31,7 +30,6 @@ class JobListEntry extends Component {
         this.props.setJobDesc(data.data);
       });
   }
-
   saveJob(e) {
     if (!this.props.user) {
       alert('Please login to enable Save Job function.'); 

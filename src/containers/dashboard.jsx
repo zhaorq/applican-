@@ -5,6 +5,7 @@ import MDDelete from 'react-icons/md/delete';
 import JobStepper from '../components/shared/jobStepper/jobStepper';
 import JobTable from '../components/dashboard/jobTable';
 import LineChart from '../components/dashboard/linechart';
+import PieChart from '../components/dashboard/piechart';
 import { updateJobStatusAPI, deleteJobAPI, fetchUserJobs, setSortFilter } from '../actions/actions';
 import getSortedJobs from '../selectors/jobs';
 import Dropdown from 'muicss/lib/react/dropdown';
@@ -41,7 +42,10 @@ class Dashboard extends Component {
           <div className="mui-panel dashboard-panel">
             <LineChart jobs={this.props.userJobs} />
           </div>
-        </div><br />
+          <div className="mui-panel dashboard-panel">
+            <PieChart />
+          </div>
+        </div>
         <span className="filterBox">
           <span className="filter-label">Show </span>
           <select value={this.state.filterValue} onChange={this.handleFilterChange}>
@@ -54,9 +58,8 @@ class Dashboard extends Component {
         <span className="filterBox">
           <span className="filter-label">SORT </span>
           <select onChange={this.props.toggleSortFilter}>
-            <option value="DEFAULT"> Default</option>
-            <option value="BY_PROGRESS"> By Progress</option>
-            <option value="BY_DATE"> By Progress</option>
+            <option value="DEFAULT"> By Date </option>
+            <option value="BY_PROGRESS"> By Progress </option>
           </select>
         </span>
         {(this.state.filterValue === 'all' || this.state.filterValue === 'saved') &&

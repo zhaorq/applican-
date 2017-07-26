@@ -47,7 +47,6 @@ class JobListEntry extends Component {
       },
     })
       .then((data) => {
-        console.log('JOB SAVED', data);
         this.setState({ confirmSave: true }); 
       });
   }

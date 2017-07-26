@@ -28,7 +28,7 @@ const JobInProgress = props => (
     </div>
     <div>
       <h3>Contacts</h3>
-      <table>
+      <table className="addContact" >
         <td width={50}>
           <AddContact jobId={props.job.id}/>
         </td>

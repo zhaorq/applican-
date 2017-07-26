@@ -16,7 +16,7 @@ class NavBar extends Component {
           <tbody>
             <tr className="mui--appbar-height">
               <td className="mui--text-title">
-                <Link to={'/'} className="mui--text-title mui--text-light">AppliCAN</Link>
+                <Link to={'/'} className="mui--text-title mui--text-light" id="applican">AppliCAN</Link>
               </td>
               <td style={{ textAlign: 'right' }}>
                 {(!this.props.isUserAuth) ?
@@ -24,8 +24,8 @@ class NavBar extends Component {
                     <img src="img/google_signin.png"/>
                     </a>
                   : <ul className="mui-list--inline mui--text-body2">
-                    <li><Link to={'/dashboard'} className="mui--text-light">Dashboard </Link></li>
-                    <li><a href="/auth/logout" className="mui--text-light">Logout</a></li>
+                    <li><Link to={'/dashboard'} className="mui--text-light" id="dashboard">Dashboard </Link></li>
+                    <li><a href="/auth/logout" className="mui--text-light" id="logout">Logout</a></li>
                   </ul>
                 }
               </td>

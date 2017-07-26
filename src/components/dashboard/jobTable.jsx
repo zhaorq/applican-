@@ -4,6 +4,14 @@ import { Link } from 'react-router-dom';
 
 const JobTable = props => (
   <table className="mui-table">
+    <thead>
+      <tr>
+        <th>Apply</th>
+        <th>Job Title</th>
+        <th>Company</th>
+        <th>Date</th>
+      </tr>
+    </thead>
     <tbody>
       {props.userJobs.filter(job => job.status === props.filter).map(job =>
         (<tr key={job.id}>
@@ -23,7 +31,8 @@ const JobTable = props => (
           </td>
           <td>{job.company}</td>
           <td>{new Date(job.post_date).toDateString()}</td>
-        </tr>))
+        </tr>
+        ))
       }
     </tbody>
   </table>

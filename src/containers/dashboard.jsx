@@ -7,6 +7,8 @@ import JobTable from '../components/dashboard/jobTable';
 import LineChart from '../components/dashboard/linechart';
 import { updateJobStatusAPI, deleteJobAPI, fetchUserJobs, setSortFilter } from '../actions/actions';
 import getSortedJobs from '../selectors/jobs';
+import Dropdown from 'muicss/lib/react/dropdown';
+import DropdownItem from 'muicss/lib/react/dropdown-item';
 
 class Dashboard extends Component {
   constructor(props) {
@@ -39,7 +41,7 @@ class Dashboard extends Component {
           <div className="mui-panel dashboard-panel">
             <LineChart jobs={this.props.userJobs} />
           </div>
-        </div>
+        </div><br />
         <span className="filterBox">
           <span className="filter-label">Show </span>
           <select value={this.state.filterValue} onChange={this.handleFilterChange}>
@@ -58,7 +60,7 @@ class Dashboard extends Component {
           </select>
         </span>
         {(this.state.filterValue === 'all' || this.state.filterValue === 'saved') &&
-        (<div>
+        (<div><br />
           <h3>Saved Jobs</h3>
           <JobTable
             userJobs={this.props.userJobs}
@@ -70,7 +72,7 @@ class Dashboard extends Component {
 
         {(this.state.filterValue === 'all' || this.state.filterValue === 'progress') &&
         (<div>
-          <h3>In Progress</h3>
+          <h3>Job in Progress</h3>
           <table className="mui-table">
             <thead>
               <tr>

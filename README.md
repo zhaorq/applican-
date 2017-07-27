@@ -20,7 +20,7 @@
 
 ## Usage
 
-> Can be used for job searching, tracking, and information management. 
+> Job searching, tracking, and information management. 
 
 ## Requirements
 
@@ -39,7 +39,7 @@ npm install
 
 ```
 
-### Start
+### Start App
 
 From within the root directory:
 

@@ -18,6 +18,7 @@ class NavBar extends Component {
               <td className="mui--text-title">
                 <Link to={'/'} className="mui--text-title mui--text-light" id="applican">AppliCAN</Link>
               </td>
+              <a><Link to={'/about'} className="mui--text-light" id="about">About </Link></a>
               <td style={{ textAlign: 'right' }}>
                 {(!this.props.isUserAuth) ?
                   <a href="/auth/google" className="logo">

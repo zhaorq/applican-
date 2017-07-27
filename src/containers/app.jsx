@@ -4,6 +4,7 @@ import { Route } from 'react-router-dom';
 import 'semantic-ui-css/semantic.min.css';
 import Landing from './landing';
 import NavBar from './navbar';
+import About from './about';
 import Search from './search';
 import Dashboard from './dashboard';
 import PrivateRoute from './privateRoute';
@@ -17,6 +18,7 @@ const App = () => (
     <div className="app">
       <NavBar />
       <Route exact path="/" component={Landing} />
+      <Route exact path="/about" component={About} />
       <Route exact path="/search" component={Search} />
       <PrivateRoute exact path="/dashboard" component={Dashboard} />
       <PrivateRoute exact path="/contacts" component={ContactInfo} />

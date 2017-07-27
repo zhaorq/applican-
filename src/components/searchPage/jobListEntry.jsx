@@ -14,7 +14,6 @@ class JobListEntry extends Component {
 
     this.selectJobHandle = this.selectJobHandle.bind(this);
     this.saveJob = this.saveJob.bind(this);
-
   }
 
   selectJobHandle(e) {

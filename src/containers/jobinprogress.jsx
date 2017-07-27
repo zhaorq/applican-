@@ -32,7 +32,7 @@ const JobInProgress = props => (
     </div>
     <div className="contactsArrange">
       <h3 className="title">Contacts</h3>
-       <AddContact jobId={props.job.id}/><br />
+       <AddContact jobId={props.job.id}/>
       <ContactInfo jobId={props.job.id} />
     </div>
   </container>

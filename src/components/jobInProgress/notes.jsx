@@ -62,7 +62,6 @@ class Notes extends Component {
 
   render() {
     return (
-
       <Container>
         <div className="tabhead">
           {this.state.tabs.map(tab => (
@@ -71,7 +70,7 @@ class Notes extends Component {
           <br />
           <div id="results" className="search-results">
             <form onSubmit={this.saveNotes}>
-              <input className="input" type="text" value={this.state.notes} onChange={e => this.handleChange(e)} />
+              <textarea className="input" type="text" value={this.state.notes} onChange={e => this.handleChange(e)} />
               <br />
               <Button variant="raised" color="primary">SAVE</Button>
             </form>

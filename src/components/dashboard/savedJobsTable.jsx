@@ -10,7 +10,7 @@ const SavedJobsTable = props => (
   <table className="mui-table">
     <thead>
       <tr>
-        <th> </th>
+        <th />
         <th>Job Title</th>
         <th>Company</th>
         <th>Date</th>
@@ -46,7 +46,7 @@ const SavedJobsTable = props => (
 );
 const mapStateToProps = (state, ownProps) =>
   ({
-    userJobs: getSavedJobs(state, ownProps.statusFilterValue) 
+    userJobs: getSavedJobs(state, ownProps.statusFilterValue),
   });
 const mapDispatchToProps = dispatch => ({
   addJobToQueue(job) {

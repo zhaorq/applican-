@@ -5,7 +5,6 @@ import FileUploader from '../shared/fileUploader';
 import Button from 'muicss/lib/react/button';
 
 
-
 class SavedCoverLetter extends Component {
   constructor(props) {
     super(props);

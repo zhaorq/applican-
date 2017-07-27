@@ -5,19 +5,19 @@ const User = require('./User.js');
 
 const Notes = db.define('Notes', {
   Start: {
-    type: Sequelize.STRING,
+    type: Sequelize.STRING(200),
   },
   Application: {
-    type: Sequelize.STRING,
+    type: Sequelize.STRING(200),
   },
   Submit: {
-    type: Sequelize.STRING,
+    type: Sequelize.STRING(200),
   },
   Interview: {
-    type: Sequelize.STRING,
+    type: Sequelize.STRING(200),
   },
   Offer: {
-    type: Sequelize.STRING,
+    type: Sequelize.STRING(200),
   },
 });
 

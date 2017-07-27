@@ -32,7 +32,7 @@ export class ContactInfo extends React.Component {
                 <td className="contactRow">{el.name}</td>
                 <td className="contactRow">{el.position}</td>
                 <td className="contactRow">{el.Email}</td>
-                <td className="contactRow">{el.FollowUp.toString()}</td>
+                <td className="contactRow">{el.FollowUp.toString().slice(0,10)}</td>
                 <td>
                   <button onClick={() => this.props.removeContactApi(el.id)}>
                     <MDDelete size={15} />

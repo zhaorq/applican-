@@ -30,13 +30,9 @@ const JobInProgress = props => (
     <h3 className="title">Notes</h3>
       <Notes id={props.job.id} />
     </div>
-    <div>
+    <div className="contactsArrange">
       <h3 className="title">Contacts</h3>
-      <table>
-        <td width={50}>
-          <AddContact jobId={props.job.id}/>
-        </td>
-      </table>
+       <AddContact jobId={props.job.id}/><br />
       <ContactInfo jobId={props.job.id} />
     </div>
   </container>

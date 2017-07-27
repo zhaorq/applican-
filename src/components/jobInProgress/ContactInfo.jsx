@@ -14,9 +14,10 @@ export class ContactInfo extends React.Component {
 
   render() {
     return (
-      <div>
-        <table className="contactTable" style={{ border: '1px solid' }} >
-          <thead className="contactHead" style={{ border: '1px solid' }}>
+      <div className="contactList">
+        <a className="mui--text-title">Contacts List</a>
+        <table className="contactTable">
+          <thead className="contactHead" >
             <tr >
               <th>Name</th>
               <th>Position</th>
@@ -25,22 +26,20 @@ export class ContactInfo extends React.Component {
               <th>Remove</th>
             </tr>
           </thead>
-          <tbody style={{ border: '1px solid' }}>
-            { Array.isArray(this.props.contacts) && this.props.contacts.map((el) => {
-              return (
-                <tr className="contactRow" key={el.id} style={{ border: '1px solid' }}>
-                  <td className="contactRow">{el.name}</td>
-                  <td className="contactRow">{el.position}</td>
-                  <td className="contactRow">{el.Email}</td>
-                  <td className="contactRow">{el.FollowUp.toString()}</td>
-                  <td>
-                    <button onClick={() => this.props.removeContactApi(el.id)}>
-                      <MDDelete size={15} />
-                    </button>
-                  </td>
-                </tr>
-              );
-            })}
+          <tbody>
+            { Array.isArray(this.props.contacts) && this.props.contacts.map(el => (
+              <tr className="contactRow" key={el.id}>
+                <td className="contactRow">{el.name}</td>
+                <td className="contactRow">{el.position}</td>
+                <td className="contactRow">{el.Email}</td>
+                <td className="contactRow">{el.FollowUp.toString()}</td>
+                <td>
+                  <button onClick={() => this.props.removeContactApi(el.id)}>
+                    <MDDelete size={15} />
+                  </button>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>

@@ -32,6 +32,7 @@ class JobListEntry extends Component {
   saveJob(e) {
     if (!this.props.user) {
       alert('Please login to enable Save Job function.'); 
+      return; 
     }
     axios.post('/api/jobs', {
       data: {

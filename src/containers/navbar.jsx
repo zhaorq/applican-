@@ -25,7 +25,7 @@ class NavBar extends Component {
                     <img src="img/google_signin.png" alt="Google Login" />
                   </a>
                   : <ul className="mui-list--inline mui--text-body2">
-                    <li><Link to={'/dashboard'} className="mui--text-light" id="dashboard">Dashboard </Link></li>
+                    <li><a href="/dashboard" className="mui--text-light" id="dashboard">Dashboard </a></li>
                     <li><a href="/auth/logout" className="mui--text-light" id="logout">Logout</a></li>
                   </ul>
                 }

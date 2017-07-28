@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import JobListEntry from './jobListEntry';
-import Button from 'muicss/lib/react/button';
 
 
 class JobList extends Component {
@@ -24,15 +23,10 @@ class JobList extends Component {
       <div>
         <div>
           {pages.map(num => (
-            <Button
-              size="small"
-              color="primary"
-              variant="raised"
-              value={num}
-              key={num * Math.random()}
+            <button className="page" value={num} key={num * Math.random()}
               onClick={e => this.handlePageNumberClick(e)}
             >Page {num}
-            </Button>))}
+            </button>))}
         </div><br />
         {this.props.jobAPIData.data.slice(this.state.pageSelect, this.state.pageSelect + 10)
           .map(job => (<JobListEntry job={job} key={job.detailUrl} history={this.props.history} />))}

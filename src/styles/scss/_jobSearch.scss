@@ -30,3 +30,22 @@
     font-size: 16px;
     border-radius: 2px;
 }
+
+.page {
+  width: 60px;
+  height: 30px;
+  background-color: #5096FF;
+  color: white;
+  text-align: center;
+  font-size: 12px;
+  margin:2px;
+}
+
+.page:active {
+   box-shadow: inset 0 0 1.094em #472566, inset 0 .063em #390668, inset 0 -0.188em #682CA0, 0 .063em rgba(255,255,255,.4); 
+}
+
+.page:hover {
+   background-color: #8A58B7;
+   box-shadow: 0 .125em rgba(255,255,255,.4), inset 0 .063em rgba(255,255, 255,.4), inset 0 -0.188em #804FAD;
+}

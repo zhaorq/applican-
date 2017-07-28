@@ -10,7 +10,6 @@ import Dashboard from './dashboard';
 import PrivateRoute from './privateRoute';
 import JobInProgress from './jobinprogress';
 import store from '../store/store';
-import ContactInfo from '../components/jobInProgress/ContactInfo';
 import '../styles/css/mui.css';
 
 const App = () => (
@@ -18,10 +17,9 @@ const App = () => (
     <div className="app">
       <NavBar />
       <Route exact path="/" component={Landing} />
-      <Route exact path="/about" component={About} />
       <Route exact path="/search" component={Search} />
+      <Route exact path="/about" component={About} />
       <PrivateRoute exact path="/dashboard" component={Dashboard} />
-      <PrivateRoute exact path="/contacts" component={ContactInfo} />
       <PrivateRoute path="/jobs/:id" component={JobInProgress} />
     </div>
   </Provider >

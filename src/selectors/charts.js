@@ -4,6 +4,7 @@ function getPieData(state) {
     { x: 2, y: 0, label: 'Application' },
     { x: 3, y: 0, label: 'Submit' },
     { x: 4, y: 0, label: 'Interview' },
+
   ];
   return state.userJobs.reduce((prev, cur) => {
     if (cur.status >= 0 && cur.status <= 3) {
@@ -15,4 +16,3 @@ function getPieData(state) {
 }
 
 export default getPieData;
-

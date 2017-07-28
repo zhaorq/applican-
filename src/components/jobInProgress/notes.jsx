@@ -52,6 +52,7 @@ class Notes extends Component {
       job_id: this.props.id,
     })
       .then((data) => {
+        alert('Notes Saved!'); 
         axios.get('/api/findnotes')
           .then((res) => {
             this.props.setUserNotes(res.data);

@@ -10,7 +10,7 @@ authRouter.get('https://applican.herokuapp.com/auth/google/callback',
   passport.authenticate('google', {
     prompt: 'consent',
     failureRedirect: '/google',
-    successRedirect: '/',
+    successRedirect: 'https://applican.herokuapp.com',
   })
 );
 

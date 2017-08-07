@@ -1,11 +1,11 @@
 const s3Router = require('express').Router();
 const AWS = require('aws-sdk');
-const config = require('../../private/s3');
 const savedJobs = require('../db/models/savedJobs');
+require('dotenv').config();
 
 AWS.config = new AWS.Config();
-AWS.config.accessKeyId = config.aws.AWS_ACCESS_KEY_ID;
-AWS.config.secretAccessKey = config.aws.AWS_SECRET_ACCESS_KEY;
+AWS.config.accessKeyId = process.env.AWS_ACCESS_KEY_ID;
+AWS.config.secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY;
 AWS.config.region = 'us-east-2';
 
 const s3 = new AWS.S3();

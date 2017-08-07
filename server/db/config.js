@@ -1,4 +1,5 @@
 const config = {};
+require('dotenv').config();
 
 config.databaseUrl = process.env.RDS_DATABASE || 'hashtablehippos.cva7riqm8hyo.us-east-2.rds.amazonaws.com';
 config.databaseOptions = {

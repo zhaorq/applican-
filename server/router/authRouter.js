@@ -6,7 +6,7 @@ authRouter.get('/google',
   passport.authenticate('google', { prompt: 'consent', scope: ['profile', 'email'] }));
 
 // Google oauth callback
-authRouter.get('https://applican.herokuapp.com/auth/google/callback',
+authRouter.get('/google/callback',
   passport.authenticate('google', {
     prompt: 'consent',
     failureRedirect: '/google',

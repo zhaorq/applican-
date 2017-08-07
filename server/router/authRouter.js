@@ -2,11 +2,11 @@ const authRouter = require('express').Router();
 const passport = require('passport');
 
 // Google oauth route
-authRouter.get('/google',
+authRouter.get('https://applican.herokuapp.com/auth/google',
   passport.authenticate('google', { prompt: 'consent', scope: ['profile', 'email'] }));
 
 // Google oauth callback
-authRouter.get('https://applican.herokuapp.com/google/callback',
+authRouter.get('https://applican.herokuapp.com/auth/google/callback',
   passport.authenticate('google', {
     prompt: 'consent',
     failureRedirect: '/auth/google',

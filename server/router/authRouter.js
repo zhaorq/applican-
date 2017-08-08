@@ -6,13 +6,12 @@ authRouter.get('/google',
   passport.authenticate('google', { prompt: 'consent', scope: ['profile', 'email'] }));
 
 // Google oauth callback
-authRouter.get('https://applican.herokuapp.com/auth/google/callback',
-  passport.authenticate('google', {
-    prompt: 'consent',
-    failureRedirect: '/google',
-    successRedirect: 'https://applican.herokuapp.com',
-  })
-);
+authRouter.get('/google/callback',
+   passport.authenticate('google', { failureRedirect: '/google' }),
+  function(req, res) {
+    // Successful authentication, redirect home.
+    res.redirect('/');
+  });
 
 authRouter.get('/checkAuth', (req, res) => {
   res.status(200).json({
